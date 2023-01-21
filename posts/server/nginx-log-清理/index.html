@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>nginx log 清理 - kdxcxs</title><meta name="Description" content=""><meta property="og:title" content="nginx log 清理" />
+        <title>nginx log 清理 - kdxcxs</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="nginx log 清理" />
 <meta property="og:description" content="之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" /><meta property="article:section" content="posts" />
@@ -14,10 +13,12 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="nginx log 清理"/>
 <meta name="twitter:description" content="之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo"/>
-<meta name="application-name" content="kdxcxs">
-<meta name="apple-mobile-web-app-title" content="kdxcxs"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" /><link rel="next" href="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" /><link rel="next" href="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,45 +30,44 @@
         },"genre": "posts","keywords": "server, nginx, bash","wordcount":  412 ,
         "url": "https:\/\/blog.kdxcxs.com:4433\/posts\/server\/nginx-log-%E6%B8%85%E7%90%86\/","datePublished": "2022-08-26T12:09:22+08:00","dateModified": "2022-08-26T12:09:22+08:00","publisher": {
             "@type": "Organization",
-            "name": "kdxcxs"},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "kdxcxs"
             },"description": ""
     }
-    </script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    </head>
-    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="kdxcxs">kdxcxs</a>
+            <a href="/" title="kdxcxs">kdxcxs&#39; blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/server/nginx-log-%E6%B8%85%E7%90%86/" selected>简体中文</option></select>
-                    </a><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/server/nginx-log-%E6%B8%85%E7%90%86/" selected>简体中文</option></select>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="kdxcxs">kdxcxs</a>
+                <a href="/" title="kdxcxs">kdxcxs&#39; blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -77,46 +77,45 @@
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
                 </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
                     <select class="language-select" onchange="location = this.value;"><option value="/posts/server/nginx-log-%E6%B8%85%E7%90%86/" selected>简体中文</option></select>
                 </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">nginx log 清理</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/server/"><i class="far fa-folder fa-fw"></i>server</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-26">2022-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 412 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">nginx log 清理</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/server/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>server</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-26">2022-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 412 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读
                 </span>
             </div>
-        </div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><p>之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 <code>/var/log/nginx</code> 移动到 <code>/var/log/nginx/20060102</code>，于是就在原本的脚本基础上添加了一行 <code>sed '/UptimeRobot/d' $log_file_name -i</code>。之前尝试过修改 nginx 让它不记录 UptimeRobot 的流量，但是这样要么需要插件，要么需要重新编译，但是我不是很想动它，最后觉得这个方式还算能接受。</p>
@@ -170,38 +169,39 @@
         <div class="post-info-line">
             <div class="post-info-mod">
                 <span>更新于 2022-08-26</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理" data-hashtags="server,nginx,bash"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-hashtag="server"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理" data-hashtags="server,nginx,bash"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-hashtag="server"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" data-title="nginx log 清理"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/server/">server</a>,&nbsp;<a href="/tags/nginx/">nginx</a>,&nbsp;<a href="/tags/bash/">bash</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/server/">server</a>,&nbsp;<a href="/tags/nginx/">nginx</a>,&nbsp;<a href="/tags/bash/">bash</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" class="prev" rel="prev" title="上传非php后缀文件走php解析"><i class="fas fa-angle-left fa-fw"></i>上传非php后缀文件走php解析</a>
-            <a href="/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" class="next" rel="next" title="frida内购破解">frida内购破解<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" class="prev" rel="prev" title="上传非php后缀文件走php解析"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>上传非php后缀文件走php解析</a>
+            <a href="/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" class="next" rel="next" title="frida内购破解">frida内购破解<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-</article></div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">kdxcxs</a></span></div>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">kdxcxs</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw"></i>
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw"></i>
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{"gitalk":{"admin":["kdxcxs"],"clientID":"47d8cb8981fe47dc90a4","clientSecret":"b86af02914c7213e58c926a185bb4051e9f35760","id":"2022-08-26T12:09:22+08:00","owner":"kdxcxs","repo":"blog-comment","title":"nginx log 清理"}},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </body>
 </html>

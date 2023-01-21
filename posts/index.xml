@@ -8,73 +8,83 @@
     <title>idekctf 2022* task manager wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</guid>
     <description><![CDATA[题目有点原型链污染的味道，也可以说是借鉴了 pyjail 的一些思路，很有意思的一道题目。 先来看看源码： app.py from flask import Flask, render_template, request, redirect from taskmanager import TaskManager import os app = Flask(__name__) @app.before_first_request def init(): if app.env == &#39;yolo&#39;: app.add_template_global(eval)]]></description>
-</item><item>
+</item>
+<item>
     <title>idekctf 2022* PHPFu...n wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:00:50 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
     <description><![CDATA[题目限制了只能有以下几个字符 ([.^])&#39;, 基本思路就是用现有的字符造更多的字符，但是因为只要一报错就会 die() ，所以不能用包括 [].'' 在内的很多方式，只能从现有的开]]></description>
-</item><item>
+</item>
+<item>
     <title>idekctf 2023 wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</link>
     <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</guid>
     <description><![CDATA[因为放假了时间多了起来，难得专注的跟 r3kapig 的师傅们一起打了个比赛，最后拿到了第二，不少题目都很有意思，复盘记录一下。 web task manager 题目有点原型链污染的味]]></description>
-</item><item>
+</item>
+<item>
     <title>hack.lu 2022 HTPL wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</link>
     <pubDate>Fri, 18 Nov 2022 00:35:37 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</guid>
     <description><![CDATA[Background The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.
 Solution First we noticed that the HTPL code we wrote renders via innerHTML, but the strict CSP makes it unexploitable.
 So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows.]]></description>
-</item><item>
+</item>
+<item>
     <title>dpkg 卸载时出现 error processing package</title>
     <link>https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</link>
     <pubDate>Sun, 09 Oct 2022 09:40:24 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</guid>
     <description><![CDATA[之前在 wsl 上面安装了 n2n，但是因为 wsl 上面没有 systemd，导致了安装失败。在卸载的时候又提示： ➜ sudo dpkg -r n2n (Reading database ... 110162 files and directories currently installed.) Removing n2n (3.0.0-1038) ... System has not been]]></description>
-</item><item>
+</item>
+<item>
     <title>frida内购破解</title>
     <link>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</link>
     <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</guid>
     <description><![CDATA[frida 是一个非常强大的 hook 框架，多平台通吃，这篇文章演示一下 iOS 平台简单的内购破解。 思路 简单来说每次内购都会在 SKPaymentQueue 中 push 一个 SKPaymentTransaction 用来记录当前这次内购的基本]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx log 清理</title>
     <link>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
     <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
     <description><![CDATA[之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo]]></description>
-</item><item>
+</item>
+<item>
     <title>上传非php后缀文件走php解析</title>
     <link>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</link>
     <pubDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</guid>
     <description><![CDATA[文件上传的题目很多都会对上传文件的后缀有限制，然后就不走 php 的解析了，这种情况下可以通过在项目文件夹下面创建配置文件的形式绕过。 .htaccess .htaccess(hypertext access) 文件在站]]></description>
-</item><item>
+</item>
+<item>
     <title>CTFd 踩坑</title>
     <link>https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/</link>
     <pubDate>Mon, 08 Aug 2022 11:01:27 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/</guid>
     <description><![CDATA[由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址]]></description>
-</item><item>
+</item>
+<item>
     <title>Cloudflare tunnel</title>
     <link>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</link>
     <pubDate>Fri, 05 Aug 2022 15:43:47 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</guid>
     <description><![CDATA[Cloudflare tunnel 可以看作是 Cloudflare 充当了原来 nginx 的角色，通过反向代理建立起了连接，换句话说，就是相当于把 Cloudflare 安装到了你的服务器上，可以通过 Cloudflare 的 cdn 来托管服务器上的网]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

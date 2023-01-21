@@ -8,8 +8,9 @@
     <title>上传非php后缀文件走php解析</title>
     <link>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</link>
     <pubDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</guid>
     <description><![CDATA[文件上传的题目很多都会对上传文件的后缀有限制，然后就不走 php 的解析了，这种情况下可以通过在项目文件夹下面创建配置文件的形式绕过。 .htaccess .htaccess(hypertext access) 文件在站]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

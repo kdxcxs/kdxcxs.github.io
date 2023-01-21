@@ -8,8 +8,9 @@
     <title>Golang Channel 详解</title>
     <link>https://blog.kdxcxs.com:4433/posts/golang/golang-channel/</link>
     <pubDate>Mon, 26 Jul 2021 21:30:00 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/golang/golang-channel/</guid>
     <description><![CDATA[source: https://colobu.com/2016/04/14/Golang-Channels/ Channel 是 Go 中的一个核心类型，你可以把它看成一个管道，通过它并发核心单元就可以发送或者接收数据进行通讯 (communication)。 它的操作]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

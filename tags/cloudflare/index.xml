@@ -8,8 +8,9 @@
     <title>Cloudflare tunnel</title>
     <link>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</link>
     <pubDate>Fri, 05 Aug 2022 15:43:47 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</guid>
     <description><![CDATA[Cloudflare tunnel 可以看作是 Cloudflare 充当了原来 nginx 的角色，通过反向代理建立起了连接，换句话说，就是相当于把 Cloudflare 安装到了你的服务器上，可以通过 Cloudflare 的 cdn 来托管服务器上的网]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

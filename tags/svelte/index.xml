@@ -8,8 +8,9 @@
     <title>svelte 入门</title>
     <link>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</link>
     <pubDate>Sun, 22 Aug 2021 20:55:19 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</guid>
     <description><![CDATA[degit 简介 degit 是一个简单的利用了 github 的项目脚手架工具，degit 做的事很简单，复制 git 仓库代码。 安装 yarn global add degit # or npm install -g degit 使用 npx degit user/repo # these commands are equivalent degit github:user/repo degit git@github.com:user/repo degit]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

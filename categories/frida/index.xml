@@ -8,8 +8,9 @@
     <title>frida内购破解</title>
     <link>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</link>
     <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>kdxcxs</author>
     <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</guid>
     <description><![CDATA[frida 是一个非常强大的 hook 框架，多平台通吃，这篇文章演示一下 iOS 平台简单的内购破解。 思路 简单来说每次内购都会在 SKPaymentQueue 中 push 一个 SKPaymentTransaction 用来记录当前这次内购的基本]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>
