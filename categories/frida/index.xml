@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>frida - 分类 - kdxcxs&#39; blog</title>
+        <link>https://blog.kdxcxs.com:4433/categories/frida/</link>
+        <description>frida - 分类 - kdxcxs&#39; blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/categories/frida/" rel="self" type="application/rss+xml" /><item>
+    <title>frida内购破解</title>
+    <link>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</link>
+    <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</guid>
+    <description><![CDATA[frida 是一个非常强大的 hook 框架，多平台通吃，这篇文章演示一下 iOS 平台简单的内购破解。 思路 简单来说每次内购都会在 SKPaymentQueue 中 push 一个 SKPaymentTransaction 用来记录当前这次内购的基本]]></description>
+</item></channel>
+</rss>

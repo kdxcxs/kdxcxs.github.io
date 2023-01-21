@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>CTFd 踩坑 - kdxcxs&#39; blog</title><meta name="Description" content=""><meta property="og:title" content="CTFd 踩坑" />
+<meta property="og:description" content="由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-08T11:01:27+08:00" />
+<meta property="article:modified_time" content="2022-08-08T11:01:27+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CTFd 踩坑"/>
+<meta name="twitter:description" content="由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址"/>
+<meta name="application-name" content="kdxcxs&#39; blog">
+<meta name="apple-mobile-web-app-title" content="kdxcxs&#39; blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/" /><link rel="next" href="https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CTFd 踩坑",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.kdxcxs.com:4433\/posts\/server\/ctfd%E8%B8%A9%E5%9D%91\/"
+        },"genre": "posts","keywords": "server","wordcount":  949 ,
+        "url": "https:\/\/blog.kdxcxs.com:4433\/posts\/server\/ctfd%E8%B8%A9%E5%9D%91\/","datePublished": "2022-08-08T11:01:27+08:00","dateModified": "2022-08-08T11:01:27+08:00","publisher": {
+            "@type": "Organization",
+            "name": "kdxcxs"},"author": {
+                "@type": "Person",
+                "name": "kdxcxs"
+            },"description": ""
+    }
+    </script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">CTFd 踩坑</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/server/"><i class="far fa-folder fa-fw"></i>server</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-08">2022-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 949 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#搭建">搭建</a>
+      <ul>
+        <li><a href="#git-自建">git 自建</a></li>
+        <li><a href="#docker-hub">docker hub</a></li>
+      </ul>
+    </li>
+    <li><a href="#ctfd-whale">CTFd-Whale</a>
+      <ul>
+        <li><a href="#架构">架构</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#坑">坑</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址好像长得也差不多，索性就把这个项目搭起来试试。</p>
+<h2 id="搭建">搭建</h2>
+<p>这里有两种方式，一种是 git pull 下来自己 build docker 镜像，另外一种就是直接从 docker hub 拉取下来。</p>
+<h3 id="git-自建">git 自建</h3>
+<p>首先把仓库 pull 下来</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/CTFd/CTFd.git
+</span></span></code></pre></div><p>然后需要修改一下 <code>Dockerfile</code> ，把 apt 和 pip 的源换成中国的</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png, https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223254.png" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list <span class="o">&amp;&amp;</span> ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Asia/Shanghai&#39;</span> &gt;/etc/timezone<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip config <span class="nb">set</span> global.index-url http://mirrors.aliyun.com/pypi/simple <span class="o">&amp;&amp;</span> pip config <span class="nb">set</span> install.trusted-host mirrors.aliyun.com<span class="err">
+</span></span></span></code></pre></div><p>然后不知道为什么一直跑不起来，说找不到 entrypoint 的那个 bash 脚本</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png, https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/07/20220807223611.png" /></p>
+<p>很打脑壳，但是我单独 docker build 之后进去看明明又是有这个文件的</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808105132.png" /></p>
+<p>很迷惑。</p>
+<p>然后我又把 Dockerfile 里面的 ENTRYPOINT 写成了 <code>[&quot;/bin/bash&quot;, &quot;/opt/CTFd/docker-entrypoint.sh&quot;]</code> ，结果又提示 <code>invalid option nameypoint.sh: line 2: set: pipefail</code>，搜到是编码问题，于是 dos2unix 处理了一下居然就成功了，ENTRYPOINT 改回 <code>[&quot;/opt/CTFd/docker-entrypoint.sh&quot;]</code> 也能运行了，万万没想到这个问题他会直接跟你说 file not found。</p>
+<p>之后就能正常跑起来了，由于后面在安装 CTFd-Whale 的时候发现它不能支持 3.x 的 CTFd，所以又跑回来 checkout 到了最新的 2.x，2.5.0。这个时候就又有一个坑了，requirements.txt 要改：</p>
+<pre tabindex="0"><code>jinja2==2.10.1
+markupsafe==2.0.1
+gevent==21.12.0
+flask_apscheduler==1.11.0
+</code></pre><p>前两行要加上去，两个 gevent 要改新，还有一个是给 CTFd-Whale 准备的。另外就是 2.5.0 的 CTFd 的 Dockerfile 是基于 python:3.7-alpine 的，所以在改源的时候应该用下面这一行：</p>
+<pre tabindex="0"><code>RUN sed -i &#39;s/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g&#39; /etc/apk/repositories
+</code></pre><p>最后一个要改的地方还是在 Dockerfile 里面，ENTRYPOINT 要改为：</p>
+<pre tabindex="0"><code>ENTRYPOINT [&#34;/bin/sh&#34;, &#34;/opt/CTFd/docker-entrypoint.sh&#34;]
+</code></pre><h3 id="docker-hub">docker hub</h3>
+<p>没什么好说的，直接写 docker-compose 配置文件即可。</p>
+<h2 id="ctfd-whale">CTFd-Whale</h2>
+<p>没有这个插件就只能有类似 misc 类型的题目，因为原生 CTFd 只有个文件上传和下载，就像这种</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134232.png" /></p>
+<p>有了 CTFd-Whale 之后就能在答题的时候一键创建并开启容器，就像下面这样</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134417.png" /></p>
+<h3 id="架构">架构</h3>
+<p>CTFd-Whale 的架构相对而言还是比较复杂的，除了 CTFd 本身和 mysql、redis 之外，还要有创建、维护题目容器的部分</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808134617.png" /></p>
+<h3 id="安装">安装</h3>
+<p>在 <code>CTFd/CTFd/plugins</code> 文件夹下解压或 clone <a href="https://github.com/glzjin/CTFd-Whale" target="_blank" rel="noopener noreffer">CTFD-Whale</a> 的仓库，但是无论如何都是下面这个样子</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png 1.5x, https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png"
+        title="https://pics.kdxcxs.com:4433/images/2022/08/08/20220808181555.png" /></p>
+<p>后来发现这里不能用赵师傅的原版，他似乎已经弃坑了，并不能适配 3.x 的 CTFd，看到有人 fork 维护了另外一个 <a href="https://github.com/frankli0324/ctfd-whale" target="_blank" rel="noopener noreffer">仓库</a> 说是能用，但是我尝试之后发现还是一样的，可能是 CTFd 后面又 breaking change 了吧。看样子只能被迫用老版本的 CTFd 了。</p>
+<h3 id="坑">坑</h3>
+<ul>
+<li>安装完成之后发现它的 renew 并不会重新 pull 更新 image，只有在 destroy 之后重新打开一个环境才会更新。</li>
+<li>设置里面的 <code>Frp config template</code> 更改后会直接改变 frpc 里面的 frpc.ini，而且就算把文件改了也没用，只有到数据库里面改才会生效，因为 CTFd-Whale 会循环通过 frp 的 api 同步配置。</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.zhaoj.in/read-6333.html" target="_blank" rel="noopener noreffer">https://www.zhaoj.in/read-6333.html</a></li>
+<li><a href="https://github.com/glzjin/CTFd-Whale/issues/20" target="_blank" rel="noopener noreffer">https://github.com/glzjin/CTFd-Whale/issues/20</a></li>
+<li><a href="https://pypi.org/project/Flask/#history" target="_blank" rel="noopener noreffer">Flask · PyPI</a></li>
+<li><a href="https://pypi.org/project/Jinja2/#history" target="_blank" rel="noopener noreffer">Jinja2 · PyPI</a></li>
+<li><a href="https://www.datasciencelearner.com/importerror-cannot-import-name-soft-unicode-from-markupsafe-solved/#:~:text=importerror%3A%20cannot%20import%20name%20soft_unicode%20from%20markupsafe%20error,injection%20which%20some%20cause%20makes%20our%20HTML%20vulnerable." target="_blank" rel="noopener noreffer">importerror: cannot import name soft_unicode from markupsafe (Solved) (datasciencelearner.com)</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-08-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" data-title="CTFd 踩坑" data-hashtags="server"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" data-hashtag="server"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" data-title="CTFd 踩坑"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" data-title="CTFd 踩坑"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/" data-title="CTFd 踩坑"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/server/">server</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/server/cloudflare-tunnel/" class="prev" rel="prev" title="Cloudflare tunnel"><i class="fas fa-angle-left fa-fw"></i>Cloudflare tunnel</a>
+            <a href="/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/" class="next" rel="next" title="上传非php后缀文件走php解析">上传非php后缀文件走php解析<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">kdxcxs</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

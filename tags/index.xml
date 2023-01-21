@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - kdxcxs&#39; blog</title>
+        <link>https://blog.kdxcxs.com:4433/tags/</link>
+        <description>Tags - 标签 - kdxcxs&#39; blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ctf</title>
+    <link>https://blog.kdxcxs.com:4433/tags/ctf/</link>
+    <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>wp</title>
+    <link>https://blog.kdxcxs.com:4433/tags/wp/</link>
+    <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/wp/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>ctf-web</title>
+    <link>https://blog.kdxcxs.com:4433/tags/ctf-web/</link>
+    <pubDate>Fri, 18 Nov 2022 00:35:37 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/ctf-web/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>server</title>
+    <link>https://blog.kdxcxs.com:4433/tags/server/</link>
+    <pubDate>Sun, 09 Oct 2022 09:40:24 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/server/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>frida</title>
+    <link>https://blog.kdxcxs.com:4433/tags/frida/</link>
+    <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/frida/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>ios</title>
+    <link>https://blog.kdxcxs.com:4433/tags/ios/</link>
+    <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/ios/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>bash</title>
+    <link>https://blog.kdxcxs.com:4433/tags/bash/</link>
+    <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/bash/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>nginx</title>
+    <link>https://blog.kdxcxs.com:4433/tags/nginx/</link>
+    <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/nginx/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>cloudflare</title>
+    <link>https://blog.kdxcxs.com:4433/tags/cloudflare/</link>
+    <pubDate>Fri, 05 Aug 2022 15:43:47 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/cloudflare/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>configuring</title>
+    <link>https://blog.kdxcxs.com:4433/tags/configuring/</link>
+    <pubDate>Wed, 26 Jan 2022 14:45:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/tags/configuring/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

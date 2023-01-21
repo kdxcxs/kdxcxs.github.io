@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ctf-web - 标签 - kdxcxs&#39; blog</title>
+        <link>https://blog.kdxcxs.com:4433/tags/ctf-web/</link>
+        <description>ctf-web - 标签 - kdxcxs&#39; blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 18 Nov 2022 00:35:37 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/ctf-web/" rel="self" type="application/rss+xml" /><item>
+    <title>hack.lu 2022 HTPL wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</link>
+    <pubDate>Fri, 18 Nov 2022 00:35:37 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</guid>
+    <description><![CDATA[Background The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.
+Solution First we noticed that the HTPL code we wrote renders via innerHTML, but the strict CSP makes it unexploitable.
+So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows.]]></description>
+</item><item>
+    <title>上传非php后缀文件走php解析</title>
+    <link>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</link>
+    <pubDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</guid>
+    <description><![CDATA[文件上传的题目很多都会对上传文件的后缀有限制，然后就不走 php 的解析了，这种情况下可以通过在项目文件夹下面创建配置文件的形式绕过。 .htaccess .htaccess(hypertext access) 文件在站]]></description>
+</item></channel>
+</rss>
