@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - kdxcxs</title>
+        <link>https://blog.kdxcxs.com:4433/en/tags/</link>
+        <description>Tags - Tag - kdxcxs</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ctf</title>
+    <link>https://blog.kdxcxs.com:4433/en/tags/ctf/</link>
+    <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://blog.kdxcxs.com:4433/en/tags/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>wp</title>
+    <link>https://blog.kdxcxs.com:4433/en/tags/wp/</link>
+    <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://blog.kdxcxs.com:4433/en/tags/wp/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

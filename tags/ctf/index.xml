@@ -1,10 +1,24 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ctf - 标签 - kdxcxs&#39; blog</title>
+        <title>ctf - 标签 - kdxcxs</title>
         <link>https://blog.kdxcxs.com:4433/tags/ctf/</link>
-        <description>ctf - 标签 - kdxcxs&#39; blog</description>
+        <description>ctf - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/ctf/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/ctf/" rel="self" type="application/rss+xml" /><item>
+    <title>idekctf 2022* task manager wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</link>
+    <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</guid>
+    <description><![CDATA[题目有点原型链污染的味道，也可以说是借鉴了 pyjail 的一些思路，很有意思的一道题目。 先来看看源码： app.py from flask import Flask, render_template, request, redirect from taskmanager import TaskManager import os app = Flask(__name__) @app.before_first_request def init(): if app.env == &#39;yolo&#39;: app.add_template_global(eval)]]></description>
+</item><item>
+    <title>idekctf 2022* PHPFu...n wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</link>
+    <pubDate>Sat, 21 Jan 2023 14:00:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
+    <description><![CDATA[题目限制了只能有以下几个字符 ([.^])&#39;, 基本思路就是用现有的字符造更多的字符，但是因为只要一报错就会 die() ，所以不能用包括 [].'' 在内的很多方式，只能从现有的开]]></description>
+</item><item>
     <title>idekctf 2023 wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</link>
     <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>

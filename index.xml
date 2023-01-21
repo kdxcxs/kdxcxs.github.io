@@ -1,12 +1,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>kdxcxs&#39; blog</title>
+        <title>kdxcxs</title>
         <link>https://blog.kdxcxs.com:4433/</link>
-        <description>kdxcxs&#39; blog</description>
+        <description>kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</lastBuildDate>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate>
             <atom:link href="https://blog.kdxcxs.com:4433/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>idekctf 2022* task manager wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</link>
+    <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</guid>
+    <description><![CDATA[题目有点原型链污染的味道，也可以说是借鉴了 pyjail 的一些思路，很有意思的一道题目。 先来看看源码： app.py from flask import Flask, render_template, request, redirect from taskmanager import TaskManager import os app = Flask(__name__) @app.before_first_request def init(): if app.env == &#39;yolo&#39;: app.add_template_global(eval)]]></description>
+</item><item>
+    <title>idekctf 2022* PHPFu...n wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</link>
+    <pubDate>Sat, 21 Jan 2023 14:00:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
+    <description><![CDATA[题目限制了只能有以下几个字符 ([.^])&#39;, 基本思路就是用现有的字符造更多的字符，但是因为只要一报错就会 die() ，所以不能用包括 [].'' 在内的很多方式，只能从现有的开]]></description>
+</item><item>
     <title>idekctf 2023 wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</link>
     <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>
@@ -64,19 +78,5 @@ So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based
     <author>作者</author>
     <guid>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</guid>
     <description><![CDATA[Cloudflare tunnel 可以看作是 Cloudflare 充当了原来 nginx 的角色，通过反向代理建立起了连接，换句话说，就是相当于把 Cloudflare 安装到了你的服务器上，可以通过 Cloudflare 的 cdn 来托管服务器上的网]]></description>
-</item><item>
-    <title>npm、yarn 基础配置</title>
-    <link>https://blog.kdxcxs.com:4433/posts/frontend/npmyarn-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Wed, 26 Jan 2022 14:45:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/frontend/npmyarn-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[在配置 node 环境时常需要进行更改源、修改缓存目录（防止爆 C 盘）等操作，本文对其进行整理。 npm &amp; yarn 源及缓存修改 # 查看缓存目录 npm config get cache yarn cache dir # 清理缓存]]></description>
-</item><item>
-    <title>svelte 入门</title>
-    <link>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</link>
-    <pubDate>Sun, 22 Aug 2021 20:55:19 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</guid>
-    <description><![CDATA[degit 简介 degit 是一个简单的利用了 github 的项目脚手架工具，degit 做的事很简单，复制 git 仓库代码。 安装 yarn global add degit # or npm install -g degit 使用 npx degit user/repo # these commands are equivalent degit github:user/repo degit git@github.com:user/repo degit]]></description>
 </item></channel>
 </rss>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>golang - 标签 - kdxcxs&#39; blog</title>
+        <title>golang - 标签 - kdxcxs</title>
         <link>https://blog.kdxcxs.com:4433/tags/golang/</link>
-        <description>golang - 标签 - kdxcxs&#39; blog</description>
+        <description>golang - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
             <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jul 2021 21:30:00 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/golang/" rel="self" type="application/rss+xml" /><item>
     <title>Golang Channel 详解</title>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ctf - 分类 - kdxcxs&#39; blog</title>
+        <title>ctf - 分类 - kdxcxs</title>
         <link>https://blog.kdxcxs.com:4433/categories/ctf/</link>
-        <description>ctf - 分类 - kdxcxs&#39; blog</description>
+        <description>ctf - 分类 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
             <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/categories/ctf/" rel="self" type="application/rss+xml" /><item>
     <title>上传非php后缀文件走php解析</title>
