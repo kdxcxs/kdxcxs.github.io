@@ -33,7 +33,7 @@ from flask import Flask, render_template, request, redirect from taskmanager imp
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/blog.kdxcxs.com:4433\/en\/posts\/wp\/idekctf-2022-task-manager-wp\/"
-        },"genre": "posts","keywords": "ctf, wp","wordcount":  1000 ,
+        },"genre": "posts","keywords": "ctf, wp","wordcount":  1003 ,
         "url": "https:\/\/blog.kdxcxs.com:4433\/en\/posts\/wp\/idekctf-2022-task-manager-wp\/","datePublished": "2023-01-21T14:24:55+08:00","dateModified": "2023-01-21T14:24:55+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -113,7 +113,7 @@ from flask import Flask, render_template, request, redirect from taskmanager imp
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">idekctf 2022* task manager wp</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>kdxcxs</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/wp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>wp</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-21">2023-01-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1000 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-21">2023-01-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1003 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;views
                 </span>
@@ -238,7 +238,7 @@ from flask import Flask, render_template, request, redirect from taskmanager imp
 <p>With <code>eval</code> in jinja globals, the next question is how can we invoke it. We all know that jinja recognise variables by <code>{{.*}}</code>, what if we changed it? In <code>app.jinja_env</code>, we could find two properties with the value of <code>{{</code> and <code>}}</code> named  <code>variable_start_string</code> and <code>variable_end_string</code>, which means we could mark any code we want, including <code>eval(.*)</code>, as a jinja variable.</p>
 <h2 id="bypassing-jinja-directory-traversal-check">Bypassing jinja directory traversal check</h2>
 <p><code>eval</code> could only be invoked by ssti, but the html files under <code>templates</code> directorry is obviously not usable. So we have to find a way to bypass jinja directory traversal check to render any file we want.</p>
-<p>From the jinja source(<a href="https://github.com/pallets/jinja/blob/36b601f24b30a91fe2fdc857116382bcb7655466/src/jinja2/loaders.py#L24-L38" target="_blank" rel="noopener noreffer ">https://github.com/pallets/jinja/blob/36b601f24b30a91fe2fdc857116382bcb7655466/src/jinja2/loaders.py#L24-L38</a>)</p>
+<p>From the <a href="https://github.com/pallets/jinja/blob/36b601f24b30a91fe2fdc857116382bcb7655466/src/jinja2/loaders.py#L24-L38" target="_blank" rel="noopener noreffer ">jinja source</a></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -249,7 +249,7 @@ from flask import Flask, render_template, request, redirect from taskmanager imp
         title="https://pics.kdxcxs.com:4433/images/2023/01/21/20230121143335.png" /></p>
 <p>we could tell that jinja uses <code>os.path.pardir</code> to check directory traversal, but we could change <code>pardir</code> to something else to bypass it.</p>
 <h2 id="exp">exp</h2>
-<p>By far, we&rsquo;ve got anything we need to get a rce, the final step is to find a file with <code>eval(.*)</code> in it and modify <code>variable_start_string</code> and <code>variable_end_string</code> properties. I first tried using <code>app.py</code>, but jinja could not parse it properly as I ended up constructing a form in <code>{{ eval{# #}(.*) }}</code>, which is not a valid expression. But we just achieved directory traversal, why not jumpping out of the chellenge files and find something in python lib instead? And the final choice is <code>turtle.py</code>:</p>
+<p>By far, we&rsquo;ve got everything we need to get a rce, the final step is to find a file with <code>eval(.*)</code> in it and modify <code>variable_start_string</code> and <code>variable_end_string</code> properties. I first tried using <code>app.py</code>, but jinja could not parse it properly as I ended up constructing a form in <code>{{ eval{# #}(.*) }}</code>, which is not a valid expression. But we just have the directory traversal check bypassed, why not jumpping out of the chellenge files and find something in python lib instead? And the final choice is <code>turtle.py</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
 </span></span><span class="line"><span class="cl">
