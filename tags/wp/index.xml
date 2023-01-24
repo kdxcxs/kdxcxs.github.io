@@ -4,7 +4,15 @@
         <link>https://blog.kdxcxs.com:4433/tags/wp/</link>
         <description>wp - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/wp/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/wp/" rel="self" type="application/rss+xml" /><item>
+    <title>bi0sCTF 2022 web wp</title>
+    <link>https://blog.kdxcxs.com:4433/posts/wp/bi0sctf-2022-web-wp/</link>
+    <pubDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://blog.kdxcxs.com:4433/posts/wp/bi0sctf-2022-web-wp/</guid>
+    <description><![CDATA[bi0sCTF 2022 web 题目 这次比赛主要就看了 PyCGI 和 Vuln-Drive 2 两个题目，又是学习的一天。 题目的环境我都放到上面的 Github 里面了，感兴趣的师傅们自取。 Vuln-Drive 2 环境速览 首先来看一下]]></description>
+</item>
+<item>
     <title>idekctf 2022* task manager wp</title>
     <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
