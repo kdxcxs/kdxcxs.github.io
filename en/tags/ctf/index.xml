@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>ctf - Tag - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/en/tags/ctf/</link>
+        <link>https://kdxcxs.github.io/en/tags/ctf/</link>
         <description>ctf - Tag - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/en/tags/ctf/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/en/tags/ctf/" rel="self" type="application/rss+xml" /><item>
     <title>idekctf 2022* task manager wp</title>
-    <link>https://blog.kdxcxs.com:4433/en/posts/wp/idekctf-2022-task-manager-wp/</link>
+    <link>https://kdxcxs.github.io/en/posts/wp/idekctf-2022-task-manager-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/en/posts/wp/idekctf-2022-task-manager-wp/</guid>
+    <guid>https://kdxcxs.github.io/en/posts/wp/idekctf-2022-task-manager-wp/</guid>
     <description><![CDATA[This challenge is quite like a python version of prototype pollution, you can also say that it uses some idea from pyjail, over all, it&rsquo;s a really interesting one.
 Let&rsquo;s have a look of the source:
 app.py
@@ -17,10 +17,10 @@ from flask import Flask, render_template, request, redirect from taskmanager imp
 </item>
 <item>
     <title>idekctf 2022* PHPFu...n wp</title>
-    <link>https://blog.kdxcxs.com:4433/en/posts/wp/idekctf-2022-phpfu...n-wp/</link>
+    <link>https://kdxcxs.github.io/en/posts/wp/idekctf-2022-phpfu...n-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:00:50 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/en/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
+    <guid>https://kdxcxs.github.io/en/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
     <description><![CDATA[For this challenge, we must get rce using ([.^])',, but in php8. Even more, warning is not allowed which means we couldn&rsquo;t use something like [].''. So, the first thing I do is to figure out how many chars can we get and how many functions can we use:
 In [206]: mapping = {} ...: for a, b in combinations(&#39;[(,.^)]&#39;, 2): ...: x = chr(ord(a) ^ ord(b)) ...: if x in mapping: .]]></description>
 </item>

@@ -1,47 +1,47 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>wp - 分类 - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/categories/wp/</link>
+        <link>https://kdxcxs.github.io/categories/wp/</link>
         <description>wp - 分类 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/categories/wp/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/categories/wp/" rel="self" type="application/rss+xml" /><item>
     <title>bi0sCTF 2022 web wp</title>
-    <link>https://blog.kdxcxs.com:4433/posts/wp/bi0sctf-2022-web-wp/</link>
+    <link>https://kdxcxs.github.io/posts/wp/bi0sctf-2022-web-wp/</link>
     <pubDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/wp/bi0sctf-2022-web-wp/</guid>
+    <guid>https://kdxcxs.github.io/posts/wp/bi0sctf-2022-web-wp/</guid>
     <description><![CDATA[bi0sCTF 2022 web 题目 这次比赛主要就看了 PyCGI 和 Vuln-Drive 2 两个题目，又是学习的一天。 题目的环境我都放到上面的 Github 里面了，感兴趣的师傅们自取。 Vuln-Drive 2 环境速览 首先来看一下]]></description>
 </item>
 <item>
     <title>idekctf 2022* task manager wp</title>
-    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</link>
+    <link>https://kdxcxs.github.io/posts/wp/idekctf-2022-task-manager-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-task-manager-wp/</guid>
+    <guid>https://kdxcxs.github.io/posts/wp/idekctf-2022-task-manager-wp/</guid>
     <description><![CDATA[题目有点原型链污染的味道，也可以说是借鉴了 pyjail 的一些思路，很有意思的一道题目。 先来看看源码： app.py from flask import Flask, render_template, request, redirect from taskmanager import TaskManager import os app = Flask(__name__) @app.before_first_request def init(): if app.env == &#39;yolo&#39;: app.add_template_global(eval)]]></description>
 </item>
 <item>
     <title>idekctf 2022* PHPFu...n wp</title>
-    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</link>
+    <link>https://kdxcxs.github.io/posts/wp/idekctf-2022-phpfu...n-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:00:50 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
+    <guid>https://kdxcxs.github.io/posts/wp/idekctf-2022-phpfu...n-wp/</guid>
     <description><![CDATA[题目限制了只能有以下几个字符 ([.^])&#39;, 基本思路就是用现有的字符造更多的字符，但是因为只要一报错就会 die() ，所以不能用包括 [].'' 在内的很多方式，只能从现有的开]]></description>
 </item>
 <item>
     <title>idekctf 2023 wp</title>
-    <link>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</link>
+    <link>https://kdxcxs.github.io/posts/wp/idekctf-2023-wp/</link>
     <pubDate>Tue, 17 Jan 2023 12:46:26 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/wp/idekctf-2023-wp/</guid>
+    <guid>https://kdxcxs.github.io/posts/wp/idekctf-2023-wp/</guid>
     <description><![CDATA[因为放假了时间多了起来，难得专注的跟 r3kapig 的师傅们一起打了个比赛，最后拿到了第二，不少题目都很有意思，复盘记录一下。 web task manager 题目有点原型链污染的味]]></description>
 </item>
 <item>
     <title>hack.lu 2022 HTPL wp</title>
-    <link>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</link>
+    <link>https://kdxcxs.github.io/posts/wp/hack.lu-2022-htpl-wp/</link>
     <pubDate>Fri, 18 Nov 2022 00:35:37 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/wp/hack.lu-2022-htpl-wp/</guid>
+    <guid>https://kdxcxs.github.io/posts/wp/hack.lu-2022-htpl-wp/</guid>
     <description><![CDATA[Background The challenge implements a language called Hyper Text Programming Language, which defined some tags and compiles them into javascript to make html could do real computation.
 Solution First we noticed that the HTPL code we wrote renders via innerHTML, but the strict CSP makes it unexploitable.
 So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based on ast, which supports only a few nodes: io, array, function, literals, binary and unary operators, assignments and control flows.]]></description>

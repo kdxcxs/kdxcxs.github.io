@@ -7,7 +7,7 @@
         <title>frida内购破解 - kdxcxs</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="frida内购破解" />
 <meta property="og:description" content="frida 是一个非常强大的 hook 框架，多平台通吃，这篇文章演示一下 iOS 平台简单的内购破解。 思路 简单来说每次内购都会在 SKPaymentQueue 中 push 一个 SKPaymentTransaction 用来记录当前这次内购的基本" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-12T10:12:23+08:00" />
 <meta property="article:modified_time" content="2022-09-12T10:12:23+08:00" /><meta property="og:site_name" content="kdxcxs" />
 <meta name="twitter:card" content="summary"/>
@@ -16,7 +16,7 @@
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><link rel="prev" href="https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/" /><link rel="next" href="https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" /><link rel="prev" href="https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/" /><link rel="next" href="https://kdxcxs.github.io/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -26,9 +26,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/blog.kdxcxs.com:4433\/posts\/cyber-security\/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3\/"
+            "@id": "https:\/\/kdxcxs.github.io\/posts\/cyber-security\/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3\/"
         },"genre": "posts","keywords": "frida, ios","wordcount":  527 ,
-        "url": "https:\/\/blog.kdxcxs.com:4433\/posts\/cyber-security\/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3\/","datePublished": "2022-09-12T10:12:23+08:00","dateModified": "2022-09-12T10:12:23+08:00","publisher": {
+        "url": "https:\/\/kdxcxs.github.io\/posts\/cyber-security\/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3\/","datePublished": "2022-09-12T10:12:23+08:00","dateModified": "2022-09-12T10:12:23+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -158,7 +158,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解" data-hashtags="frida,ios"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-hashtag="frida"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://blog.kdxcxs.com:4433/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解" data-hashtags="frida,ios"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-hashtag="frida"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/" data-title="frida内购破解"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

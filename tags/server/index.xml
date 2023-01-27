@@ -1,39 +1,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>server - 标签 - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/tags/server/</link>
+        <link>https://kdxcxs.github.io/tags/server/</link>
         <description>server - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 09 Oct 2022 09:40:24 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/server/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 09 Oct 2022 09:40:24 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/server/" rel="self" type="application/rss+xml" /><item>
     <title>dpkg 卸载时出现 error processing package</title>
-    <link>https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</link>
+    <link>https://kdxcxs.github.io/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</link>
     <pubDate>Sun, 09 Oct 2022 09:40:24 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</guid>
+    <guid>https://kdxcxs.github.io/posts/server/dpkg-%E5%8D%B8%E8%BD%BD%E6%97%B6%E5%87%BA%E7%8E%B0-error-processing-package/</guid>
     <description><![CDATA[之前在 wsl 上面安装了 n2n，但是因为 wsl 上面没有 systemd，导致了安装失败。在卸载的时候又提示： ➜ sudo dpkg -r n2n (Reading database ... 110162 files and directories currently installed.) Removing n2n (3.0.0-1038) ... System has not been]]></description>
 </item>
 <item>
     <title>nginx log 清理</title>
-    <link>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
+    <link>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
     <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
+    <guid>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
     <description><![CDATA[之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo]]></description>
 </item>
 <item>
     <title>CTFd 踩坑</title>
-    <link>https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/</link>
+    <link>https://kdxcxs.github.io/posts/server/ctfd%E8%B8%A9%E5%9D%91/</link>
     <pubDate>Mon, 08 Aug 2022 11:01:27 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/server/ctfd%E8%B8%A9%E5%9D%91/</guid>
+    <guid>https://kdxcxs.github.io/posts/server/ctfd%E8%B8%A9%E5%9D%91/</guid>
     <description><![CDATA[由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址]]></description>
 </item>
 <item>
     <title>Cloudflare tunnel</title>
-    <link>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</link>
+    <link>https://kdxcxs.github.io/posts/server/cloudflare-tunnel/</link>
     <pubDate>Fri, 05 Aug 2022 15:43:47 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/server/cloudflare-tunnel/</guid>
+    <guid>https://kdxcxs.github.io/posts/server/cloudflare-tunnel/</guid>
     <description><![CDATA[Cloudflare tunnel 可以看作是 Cloudflare 充当了原来 nginx 的角色，通过反向代理建立起了连接，换句话说，就是相当于把 Cloudflare 安装到了你的服务器上，可以通过 Cloudflare 的 cdn 来托管服务器上的网]]></description>
 </item>
 </channel>

@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>chore - 标签 - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/tags/chore/</link>
+        <link>https://kdxcxs.github.io/tags/chore/</link>
         <description>chore - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jul 2021 07:27:26 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/chore/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jul 2021 07:27:26 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/chore/" rel="self" type="application/rss+xml" /><item>
     <title>服务器迁移记录</title>
-    <link>https://blog.kdxcxs.com:4433/posts/chore/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</link>
+    <link>https://kdxcxs.github.io/posts/chore/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</link>
     <pubDate>Mon, 26 Jul 2021 07:27:26 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/chore/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</guid>
+    <guid>https://kdxcxs.github.io/posts/chore/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</guid>
     <description><![CDATA[服务器迁移记录 由于去年买的学生机马上要到期了，恰好遇到双十一打折就新买了一台服务器，然后就是把旧服务器上的服务迁移到新服务器了。 在开始之前发]]></description>
 </item>
 </channel>

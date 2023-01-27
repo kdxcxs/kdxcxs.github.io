@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>nginx - 标签 - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/tags/nginx/</link>
+        <link>https://kdxcxs.github.io/tags/nginx/</link>
         <description>nginx - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/nginx/" rel="self" type="application/rss+xml" /><item>
     <title>nginx log 清理</title>
-    <link>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
+    <link>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
     <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
+    <guid>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
     <description><![CDATA[之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo]]></description>
 </item>
 </channel>

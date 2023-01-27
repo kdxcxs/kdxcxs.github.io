@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>svelte - 标签 - kdxcxs</title>
-        <link>https://blog.kdxcxs.com:4433/tags/svelte/</link>
+        <link>https://kdxcxs.github.io/tags/svelte/</link>
         <description>svelte - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 22 Aug 2021 20:55:19 &#43;0800</lastBuildDate><atom:link href="https://blog.kdxcxs.com:4433/tags/svelte/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 22 Aug 2021 20:55:19 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/svelte/" rel="self" type="application/rss+xml" /><item>
     <title>svelte 入门</title>
-    <link>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</link>
+    <link>https://kdxcxs.github.io/posts/frontend/svelte-tutorial/</link>
     <pubDate>Sun, 22 Aug 2021 20:55:19 &#43;0800</pubDate>
     <author>kdxcxs</author>
-    <guid>https://blog.kdxcxs.com:4433/posts/frontend/svelte-tutorial/</guid>
+    <guid>https://kdxcxs.github.io/posts/frontend/svelte-tutorial/</guid>
     <description><![CDATA[degit 简介 degit 是一个简单的利用了 github 的项目脚手架工具，degit 做的事很简单，复制 git 仓库代码。 安装 yarn global add degit # or npm install -g degit 使用 npx degit user/repo # these commands are equivalent degit github:user/repo degit git@github.com:user/repo degit]]></description>
 </item>
 </channel>
