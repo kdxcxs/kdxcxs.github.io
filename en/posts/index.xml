@@ -4,7 +4,15 @@
         <link>https://kdxcxs.github.io/en/posts/</link>
         <description>All Posts | kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 12 Feb 2023 20:47:45 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>LA CTF 2023 wp</title>
+    <link>https://kdxcxs.github.io/en/posts/wp/la-ctf-2023-wp/</link>
+    <pubDate>Sun, 12 Feb 2023 20:47:45 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/en/posts/wp/la-ctf-2023-wp/</guid>
+    <description><![CDATA[web metaverse core codes const flag = process.env.FLAG; accounts.set(&#34;admin&#34;, { password: adminpw, displayName: flag, posts: [], friends: [], }); app.get(&#34;/post/:id&#34;, (req, res) =&gt; { if (posts.has(req.params.id)) { res.type(&#34;text/html&#34;).send(postTemplate.replace(&#34;$CONTENT&#34;, () =&gt; posts.get(req.params.id))); } else { res.status(400).type(&#34;text/html&#34;).send(postTemplate.replace(&#34;$CONTENT&#34;, &#34;post not found :(&#34;)); } }); app.post(&#34;/friend&#34;, needsAuth, (req, res) =&gt; { res.type(&#34;text/plain&#34;); const username = req.body.username.trim(); if (!accounts.has(username)) { res.status(400).send(&#34;Metauser doesn&#39;t metaexist&#34;); } else { const user = accounts.get(username); if (user.friends.includes(res.locals.user)) { res.status(400).send(&#34;Already metafriended&#34;); } else { user.]]></description>
+</item>
+<item>
     <title>idekctf 2022* task manager wp</title>
     <link>https://kdxcxs.github.io/en/posts/wp/idekctf-2022-task-manager-wp/</link>
     <pubDate>Sat, 21 Jan 2023 14:24:55 &#43;0800</pubDate>
