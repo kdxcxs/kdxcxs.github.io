@@ -4,7 +4,17 @@
         <link>https://kdxcxs.github.io/en/posts/</link>
         <description>All Posts | kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 12 Feb 2023 20:47:45 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/en/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Sun, 05 Mar 2023 21:55:27 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>KalmarCTF 2023 Healthy Calc wp</title>
+    <link>https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/</link>
+    <pubDate>Sun, 05 Mar 2023 21:55:27 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/en/posts/wp/kalmarctf-2023-healthy-calc-wp/</guid>
+    <description><![CDATA[Healthy Calc chall overview Dockerfile:
+COPY flag /flag COPY readflag.c /readflag.c RUN gcc /readflag.c -o /readflag RUN chown root:root /flag &amp;&amp; chmod 400 /flag RUN chown root:root /readflag &amp;&amp; chmod 4755 /readflag From the dockerfile it&rsquo;s obvious we need to rce, let&rsquo;s have a look at chall.py:
+OPERATION_SYMBOLS = {&#34;add&#34;: &#34;+&#34;, &#34;sub&#34;: &#34;-&#34;, &#34;mult&#34;: &#34;*&#34;} OPERATIONS = { &#34;add&#34;: lambda lhs, rhs: cache_lookup(_add, lhs, rhs), &#34;sub&#34;: lambda lhs, rhs: cache_lookup(_sub, lhs, rhs), &#34;mult&#34;: lambda lhs, rhs: cache_lookup(_mult, lhs, rhs), } application = Flask(__name__) bp = Blueprint(&#34;routes&#34;, __name__) celery = Celery(__name__) @bp.]]></description>
+</item>
+<item>
     <title>LA CTF 2023 wp</title>
     <link>https://kdxcxs.github.io/en/posts/wp/la-ctf-2023-wp/</link>
     <pubDate>Sun, 12 Feb 2023 20:47:45 &#43;0800</pubDate>
