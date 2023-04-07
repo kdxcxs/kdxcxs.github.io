@@ -4,9 +4,17 @@
         <link>https://kdxcxs.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</lastBuildDate>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</lastBuildDate>
             <atom:link href="https://kdxcxs.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>任意文件读拿下宝塔</title>
+    <link>https://kdxcxs.github.io/posts/cyber-security/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E6%8B%BF%E4%B8%8B%E5%AE%9D%E5%A1%94/</link>
+    <pubDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/posts/cyber-security/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E6%8B%BF%E4%B8%8B%E5%AE%9D%E5%A1%94/</guid>
+    <description><![CDATA[前言 两个月前 v2 冲浪的时候看到一个叫做 siteproxy 的项目，可以实现网站的反向代理，看着项目不大就顺手点开了源码，一眼抓到一个目录穿越，然后又抱着试一试的]]></description>
+</item>
+<item>
     <title>bi0sCTF 2022 web wp</title>
     <link>https://kdxcxs.github.io/posts/wp/bi0sctf-2022-web-wp/</link>
     <pubDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</pubDate>
@@ -79,14 +87,6 @@ So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based
     <author>kdxcxs</author>
     <guid>https://kdxcxs.github.io/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</guid>
     <description><![CDATA[文件上传的题目很多都会对上传文件的后缀有限制，然后就不走 php 的解析了，这种情况下可以通过在项目文件夹下面创建配置文件的形式绕过。 .htaccess .htaccess(hypertext access) 文件在站]]></description>
-</item>
-<item>
-    <title>CTFd 踩坑</title>
-    <link>https://kdxcxs.github.io/posts/server/ctfd%E8%B8%A9%E5%9D%91/</link>
-    <pubDate>Mon, 08 Aug 2022 11:01:27 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/posts/server/ctfd%E8%B8%A9%E5%9D%91/</guid>
-    <description><![CDATA[由于团队新开了 CTF 方向，为了方便后面进行队内训练和比赛，还是打算自己建一个 CTF 答题平台，不能受制于人，外界太不稳定了。看到 buuoj 用的是 CTFd 其他几个网址]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>渗透 - 标签 - kdxcxs</title>
+        <link>https://kdxcxs.github.io/tags/%E6%B8%97%E9%80%8F/</link>
+        <description>渗透 - 标签 - kdxcxs</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/%E6%B8%97%E9%80%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>任意文件读拿下宝塔</title>
+    <link>https://kdxcxs.github.io/posts/cyber-security/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E6%8B%BF%E4%B8%8B%E5%AE%9D%E5%A1%94/</link>
+    <pubDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/posts/cyber-security/%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E6%8B%BF%E4%B8%8B%E5%AE%9D%E5%A1%94/</guid>
+    <description><![CDATA[前言 两个月前 v2 冲浪的时候看到一个叫做 siteproxy 的项目，可以实现网站的反向代理，看着项目不大就顺手点开了源码，一眼抓到一个目录穿越，然后又抱着试一试的]]></description>
+</item>
+</channel>
+</rss>
