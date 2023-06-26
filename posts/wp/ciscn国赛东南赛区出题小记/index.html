@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/kdxcxs.github.io\/posts\/wp\/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0\/"
-        },"genre": "posts","keywords": "ctf, my-chals, ciscn, ejs","wordcount":  1748 ,
+        },"genre": "posts","keywords": "ctf, my-chals, ciscn, ejs","wordcount":  1971 ,
         "url": "https:\/\/kdxcxs.github.io\/posts\/wp\/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0\/","datePublished": "2023-06-26T09:09:47+08:00","dateModified": "2023-06-26T09:09:47+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -107,7 +107,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CISCN国赛东南赛区出题小记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>kdxcxs</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ctf/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ctf</a>&nbsp;<a href="/categories/my-chals/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>my-chals</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1748 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1971 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读
                 </span>
@@ -151,7 +151,7 @@
         data-srcset="../assets/209c8d7f7d8c4f07a7949537d4f45cbc_MD5.png, ../assets/209c8d7f7d8c4f07a7949537d4f45cbc_MD5.png 1.5x, ../assets/209c8d7f7d8c4f07a7949537d4f45cbc_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/209c8d7f7d8c4f07a7949537d4f45cbc_MD5.png"
-        title="../assets/209c8d7f7d8c4f07a7949537d4f45cbc_MD5.png" /></p>
+        title="profilePayload接口" /></p>
 <p>都不用原型链污染了，真贴心，但是我们并不能控制 <code>debug</code> 属性，仍然 mark，后面会用到</p>
 <h2 id="render">render</h2>
 <p>一来就是一个非常显眼的注释：</p>
@@ -162,7 +162,7 @@
         data-srcset="../assets/e6fd56d193d763619128036038c033a2_MD5.png, ../assets/e6fd56d193d763619128036038c033a2_MD5.png 1.5x, ../assets/e6fd56d193d763619128036038c033a2_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/e6fd56d193d763619128036038c033a2_MD5.png"
-        title="../assets/e6fd56d193d763619128036038c033a2_MD5.png" /></p>
+        title="过期token" /></p>
 <p>可以看到给了一个过期的 token，但是这道题是基于 AES ECB 的，不妨把数据对齐看看能不能重放：</p>
 <p><img
         class="lazyload"
@@ -171,7 +171,7 @@
         data-srcset="../assets/94008f91dacbbe59488b4a514888b7de_MD5.png, ../assets/94008f91dacbbe59488b4a514888b7de_MD5.png 1.5x, ../assets/94008f91dacbbe59488b4a514888b7de_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/94008f91dacbbe59488b4a514888b7de_MD5.png"
-        title="../assets/94008f91dacbbe59488b4a514888b7de_MD5.png" /></p>
+        title="token按照AES分块对齐" /></p>
 <p>很明显最后两块是可以利用的，加上前面 websocket 的 <code>profilePayload</code> 接口我们可以往里面加任意属性，控制一下长度就可以构造 <code>debug == true</code> 了。</p>
 <p>继续往后面看：</p>
 <p><img
@@ -181,7 +181,7 @@
         data-srcset="../assets/e438f85b532b77d03e25dd1f71b0b570_MD5.png, ../assets/e438f85b532b77d03e25dd1f71b0b570_MD5.png 1.5x, ../assets/e438f85b532b77d03e25dd1f71b0b570_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/e438f85b532b77d03e25dd1f71b0b570_MD5.png"
-        title="../assets/e438f85b532b77d03e25dd1f71b0b570_MD5.png" /></p>
+        title="js特性bug" /></p>
 <p>这一段代码乍一看似乎没什么问题，但是短短几行代码就隐藏了两个 bug：</p>
 <h3 id="换行缺少分号">换行缺少分号</h3>
 <p>在 <code>data</code> 复制的地方可以看到第一行是没有分号的，代码本意是第一行将 <code>data</code> 赋值为一个数组，第二行通过布尔判断截断的方式打印提示，但是因为缺少分号，并且紧接的第二行是以 <code>[</code> 开头，这就会导致第二行的 <code>[decrypted.debug ? 0 : 1]</code> 变成第一行的取下标操作，最后 <code>data</code> 变量的值就会变成一个对象，而结合前面 <code>decrypted.debug</code> 已经可控，我们就可以控制让 <code>data</code> 变量被赋值为 <code>decrypted</code> 的值。</p>
@@ -324,7 +324,7 @@
         data-srcset="../assets/6979c68d3f4976b0d1bbd758ffc15bc4_MD5.png, ../assets/6979c68d3f4976b0d1bbd758ffc15bc4_MD5.png 1.5x, ../assets/6979c68d3f4976b0d1bbd758ffc15bc4_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/6979c68d3f4976b0d1bbd758ffc15bc4_MD5.png"
-        title="../assets/6979c68d3f4976b0d1bbd758ffc15bc4_MD5.png" /></p>
+        title="render的patch示例" /></p>
 <p>或者在 <code>ws.mjs</code> 的 <code>profilePayload</code> 中生成 token 时直接删掉 <code>payload</code> 的解构：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sed -i <span class="s1">&#39;/\.\.\.payload/d&#39;</span> /app/ws.mjs
 </span></span></code></pre></div><h2 id="后记">后记</h2>
@@ -340,7 +340,7 @@
         data-srcset="../assets/2082bab44bcd0fba675638a1b3451040_MD5.png, ../assets/2082bab44bcd0fba675638a1b3451040_MD5.png 1.5x, ../assets/2082bab44bcd0fba675638a1b3451040_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/2082bab44bcd0fba675638a1b3451040_MD5.png"
-        title="../assets/2082bab44bcd0fba675638a1b3451040_MD5.png" /></p>
+        title="ejs esmodule rce" /></p>
 <p>或者再加一个 <code>async</code> 的 opt：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -358,7 +358,7 @@
         data-srcset="../assets/3695be87e3aba2242c0e150885985e9c_MD5.png, ../assets/3695be87e3aba2242c0e150885985e9c_MD5.png 1.5x, ../assets/3695be87e3aba2242c0e150885985e9c_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/3695be87e3aba2242c0e150885985e9c_MD5.png"
-        title="../assets/3695be87e3aba2242c0e150885985e9c_MD5.png" /></p>
+        title="async rce" /></p>
 <h3 id="ejs-带回显-rce">ejs 带回显 rce</h3>
 <h4 id="commonjs">commonjs</h4>
 <p>其实这道题我写的 exp 中的 payload 就是可以回显的：</p>
@@ -369,7 +369,7 @@
         data-srcset="../assets/646391cb5616ed8b05faa13010055852_MD5.png, ../assets/646391cb5616ed8b05faa13010055852_MD5.png 1.5x, ../assets/646391cb5616ed8b05faa13010055852_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/646391cb5616ed8b05faa13010055852_MD5.png"
-        title="../assets/646391cb5616ed8b05faa13010055852_MD5.png" /></p>
+        title="ejs commonjs 带回显 rce" /></p>
 <p>我们可以看看 ejs 是怎么获取模板渲染结果的：</p>
 <p><img
         class="lazyload"
@@ -378,7 +378,7 @@
         data-srcset="../assets/15c231475d630ecea08bdc120ffcfd74_MD5.png, ../assets/15c231475d630ecea08bdc120ffcfd74_MD5.png 1.5x, ../assets/15c231475d630ecea08bdc120ffcfd74_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/15c231475d630ecea08bdc120ffcfd74_MD5.png"
-        title="../assets/15c231475d630ecea08bdc120ffcfd74_MD5.png" /></p>
+        title="ejs 模板编译结果" /></p>
 <p>可以看到它是将模板“编译”成 js 运行，得到结果后再输出的，在 26 行我们进行拼接之后就可以自己构造一个 return 然后自定义模板渲染的返回结果了。</p>
 <h4 id="esmodule">esmodule</h4>
 <p>由于 esmodule 的 rce 是使用 <code>import()</code> 实现的，而这是一个异步的函数，所以并不能跟上文的 commonjs 一样直接 return，哪怕在 ejs 的 option 中设置了 <code>async</code> 也不行，只会返回一个空的 json，原因在于 express 的 <code>response.js</code> 中的默认回调函数：</p>
@@ -389,9 +389,25 @@
         data-srcset="../assets/371e1746014cf340b671909a1e9fd21c_MD5.png, ../assets/371e1746014cf340b671909a1e9fd21c_MD5.png 1.5x, ../assets/371e1746014cf340b671909a1e9fd21c_MD5.png 2x"
         data-sizes="auto"
         alt="../assets/371e1746014cf340b671909a1e9fd21c_MD5.png"
-        title="../assets/371e1746014cf340b671909a1e9fd21c_MD5.png" /></p>
+        title="express 中的默认回调" /></p>
 <p>express 并没有考虑到异步的情况，async 函数返回的是一个 promise 对象，这里并没有 resolve 或者 await 来获取运行结果。如果在路由中不传入 callback 的话那就没有办法回显了。出于类似的原因，报错信息也不能被返回，所以也断掉了通过报错携带回显的道路。</p>
 <p>经过一些寻找之后我并没有发现一个能够直接回显的方法，不过有权限的话还是可以通过写文件、反弹 shell 之类的方式来做。</p>
+<blockquote>
+<p>2023年6月26日下午补充</p>
+</blockquote>
+<p>经过一些更多的寻找之后，esmodule 下也能一次访问回显了：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../assets/aeaa4c87f64ef63320795fffbb301577_MD5.png"
+        data-srcset="../assets/aeaa4c87f64ef63320795fffbb301577_MD5.png, ../assets/aeaa4c87f64ef63320795fffbb301577_MD5.png 1.5x, ../assets/aeaa4c87f64ef63320795fffbb301577_MD5.png 2x"
+        data-sizes="auto"
+        alt="../assets/aeaa4c87f64ef63320795fffbb301577_MD5.png"
+        title="esmodule 的带回显 ejs rce" /></p>
+<p>talk is cheap，直接上代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="mi">0</span><span class="p">;</span><span class="kr">import</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">cp</span><span class="p">=&gt;</span><span class="nx">cp</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="nx">execSync</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">exec</span><span class="p">=&gt;{</span><span class="nx">__output</span><span class="o">=</span><span class="nx">exec</span><span class="p">(</span><span class="s1">&#39;whoami&#39;</span><span class="p">)}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">=&gt;{</span><span class="nx">__output</span><span class="o">=</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">()});</span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">__output</span><span class="p">)</span><span class="nx">process</span><span class="p">.</span><span class="nx">_tickCallback</span><span class="p">();</span><span class="k">return</span> <span class="nx">__output</span>
+</span></span></code></pre></div><p>原理也很简单，就是同步阻塞等待异步结果，关键点在 <code>process._tickCallback();</code> 这一行，如果只写一个类似 <code>while(!__output) continue;</code> 之类的话就会一直停在这里，不太明白的师傅可以去深入了解以下 js 的 eventloop。</p>
+<p>这个 <code>__output</code> 是后面 31 行定义的，由于变量提升这里也可以访问到，所以我直接就用了这个变量名（<del>能懒一点是一点</del> 精简 payload），当然也可以自己重新定义一个变量来存放运行结果。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
