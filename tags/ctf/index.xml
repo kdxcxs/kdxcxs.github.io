@@ -4,7 +4,15 @@
         <link>https://kdxcxs.github.io/tags/ctf/</link>
         <description>ctf - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/ctf/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/ctf/" rel="self" type="application/rss+xml" /><item>
+    <title>CISCN国赛东南赛区出题小记</title>
+    <link>https://kdxcxs.github.io/posts/wp/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/posts/wp/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0/</guid>
+    <description><![CDATA[好久没写博客了，正好出题写了 wp，就放上来水一下吧。这次难度控制的不是很好，fix 很简单，但是攻击只有 1 解，不过希望师傅们游戏玩得开心。 拿到]]></description>
+</item>
+<item>
     <title>bi0sCTF 2022 web wp</title>
     <link>https://kdxcxs.github.io/posts/wp/bi0sctf-2022-web-wp/</link>
     <pubDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</pubDate>

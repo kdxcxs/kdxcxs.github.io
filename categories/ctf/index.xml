@@ -4,7 +4,15 @@
         <link>https://kdxcxs.github.io/categories/ctf/</link>
         <description>ctf - 分类 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/categories/ctf/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/categories/ctf/" rel="self" type="application/rss+xml" /><item>
+    <title>CISCN国赛东南赛区出题小记</title>
+    <link>https://kdxcxs.github.io/posts/wp/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/posts/wp/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0/</guid>
+    <description><![CDATA[好久没写博客了，正好出题写了 wp，就放上来水一下吧。这次难度控制的不是很好，fix 很简单，但是攻击只有 1 解，不过希望师傅们游戏玩得开心。 拿到]]></description>
+</item>
+<item>
     <title>上传非php后缀文件走php解析</title>
     <link>https://kdxcxs.github.io/posts/cyber-security/%E4%B8%8A%E4%BC%A0%E9%9D%9Ephp%E5%90%8E%E7%BC%80%E6%96%87%E4%BB%B6%E8%B5%B0php%E8%A7%A3%E6%9E%90/</link>
     <pubDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</pubDate>

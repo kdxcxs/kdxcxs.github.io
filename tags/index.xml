@@ -4,7 +4,39 @@
         <link>https://kdxcxs.github.io/tags/</link>
         <description>Tags - 标签 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ciscn</title>
+    <link>https://kdxcxs.github.io/tags/ciscn/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/tags/ciscn/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ctf</title>
+    <link>https://kdxcxs.github.io/tags/ctf/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/tags/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ejs</title>
+    <link>https://kdxcxs.github.io/tags/ejs/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/tags/ejs/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>my-chals</title>
+    <link>https://kdxcxs.github.io/tags/my-chals/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/tags/my-chals/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>宝塔</title>
     <link>https://kdxcxs.github.io/tags/%E5%AE%9D%E5%A1%94/</link>
     <pubDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</pubDate>
@@ -18,14 +50,6 @@
     <pubDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</pubDate>
     <author>kdxcxs</author>
     <guid>https://kdxcxs.github.io/tags/%E6%B8%97%E9%80%8F/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>ctf</title>
-    <link>https://kdxcxs.github.io/tags/ctf/</link>
-    <pubDate>Mon, 23 Jan 2023 15:57:28 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/tags/ctf/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -58,30 +82,6 @@
     <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
     <author>kdxcxs</author>
     <guid>https://kdxcxs.github.io/tags/frida/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>ios</title>
-    <link>https://kdxcxs.github.io/tags/ios/</link>
-    <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/tags/ios/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>bash</title>
-    <link>https://kdxcxs.github.io/tags/bash/</link>
-    <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/tags/bash/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>nginx</title>
-    <link>https://kdxcxs.github.io/tags/nginx/</link>
-    <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/tags/nginx/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

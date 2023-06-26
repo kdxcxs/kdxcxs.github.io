@@ -4,7 +4,23 @@
         <link>https://kdxcxs.github.io/categories/</link>
         <description>Categories - 分类 - kdxcxs</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</lastBuildDate><atom:link href="https://kdxcxs.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>ctf</title>
+    <link>https://kdxcxs.github.io/categories/ctf/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/categories/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>my-chals</title>
+    <link>https://kdxcxs.github.io/categories/my-chals/</link>
+    <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/categories/my-chals/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>cyber-security</title>
     <link>https://kdxcxs.github.io/categories/cyber-security/</link>
     <pubDate>Fri, 07 Apr 2023 23:45:39 &#43;0800</pubDate>
@@ -42,14 +58,6 @@
     <pubDate>Mon, 12 Sep 2022 10:12:23 &#43;0800</pubDate>
     <author>kdxcxs</author>
     <guid>https://kdxcxs.github.io/categories/frida/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>ctf</title>
-    <link>https://kdxcxs.github.io/categories/ctf/</link>
-    <pubDate>Wed, 24 Aug 2022 22:02:15 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/categories/ctf/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
