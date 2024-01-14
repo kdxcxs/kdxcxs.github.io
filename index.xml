@@ -4,9 +4,17 @@
         <link>https://kdxcxs.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cx@kdxcxs.com (kdxcxs)</managingEditor>
-            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</lastBuildDate>
+            <webMaster>cx@kdxcxs.com (kdxcxs)</webMaster><lastBuildDate>Mon, 01 Jan 2024 00:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://kdxcxs.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>My 2023</title>
+    <link>https://kdxcxs.github.io/posts/soliloquy/my-2023/</link>
+    <pubDate>Mon, 01 Jan 2024 00:00:00 &#43;0800</pubDate>
+    <author>kdxcxs</author>
+    <guid>https://kdxcxs.github.io/posts/soliloquy/my-2023/</guid>
+    <description><![CDATA[我的 2023 或许要从 2022 的 10 月 21 日说起。 梦开始的地方 那是一个守望先锋还没退出国服的下午，我跟室友正在新皇后街感受宁静，结果就收到了 crazyman 发来的消息，本来]]></description>
+</item>
+<item>
     <title>CISCN国赛东南赛区出题小记</title>
     <link>https://kdxcxs.github.io/posts/wp/ciscn%E5%9B%BD%E8%B5%9B%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA%E5%87%BA%E9%A2%98%E5%B0%8F%E8%AE%B0/</link>
     <pubDate>Mon, 26 Jun 2023 09:09:47 &#43;0800</pubDate>
@@ -79,14 +87,6 @@ So let&rsquo;s turn to the HTPL part. The HTPL code&rsquo;s compilation is based
     <author>kdxcxs</author>
     <guid>https://kdxcxs.github.io/posts/cyber-security/frida%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3/</guid>
     <description><![CDATA[frida 是一个非常强大的 hook 框架，多平台通吃，这篇文章演示一下 iOS 平台简单的内购破解。 思路 简单来说每次内购都会在 SKPaymentQueue 中 push 一个 SKPaymentTransaction 用来记录当前这次内购的基本]]></description>
-</item>
-<item>
-    <title>nginx log 清理</title>
-    <link>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</link>
-    <pubDate>Fri, 26 Aug 2022 12:09:22 &#43;0800</pubDate>
-    <author>kdxcxs</author>
-    <guid>https://kdxcxs.github.io/posts/server/nginx-log-%E6%B8%85%E7%90%86/</guid>
-    <description><![CDATA[之前设置了 UptimeRobot 来监控服务器的运行情况，但是这样会在 nginx 下面留下大量的轮询 log 记录，想到之前设置的 crontab 会在每天 00:00 的时候把 log 文件从 /var/log/nginx 移动到 /var/lo]]></description>
 </item>
 </channel>
 </rss>
